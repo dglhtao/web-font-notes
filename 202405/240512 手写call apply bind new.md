@@ -1,5 +1,11 @@
 # 手写call、apply、bind、new
 
+call、apply、bind、new都是Function.prototype自带的几个this绑定方法，前三者为显示绑定，最后一个为new绑定
+
+## 1、call(...)
+
+call(...)方法
+
 call() 方法用于指定一个this值，和单独给出一个或多个参数来调用一个函数
 和apply() 类似，区别在于call() 方法接受一个参数列表，apply() 方法接受一个包含多个参数的数组
 手写参考：<https://www.jb51.net/javascript/284715v74.htm>
