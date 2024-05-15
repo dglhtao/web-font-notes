@@ -1,2 +1,2 @@
-# javascript-notes
-JavaScript学习随笔
+# web-font-notes
+web前端学习随笔
