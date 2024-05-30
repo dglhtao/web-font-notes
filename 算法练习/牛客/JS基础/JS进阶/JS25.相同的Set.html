@@ -1,0 +1,40 @@
+<!--
+@nc app=nowcoder id=1417539606b84ad081147516158153a1 topic=271 question=39565 lang=Html
+2024-05-30 18:25:59
+https://www.nowcoder.com/practice/1417539606b84ad081147516158153a1?tpId=271&tqId=39565
+[JS25] 相同的Set
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        
+        <script>
+            const _isSameSet = (s1, s2) => {
+                // 补全代码
+                if (Object.keys(s1).length !== Object.keys(s2).length) { return }
+                const item = Object.keys(s1).find(key => s1[key] !== s2[key])
+                if (item) { return false }
+                return true
+            }
+        </script>
+    </body>
+</html>
+
+<style>
+/* 请在这里输入代码 */
+/* html, body {\n\twidth: 100%;\n\theight: 100%;\n\tmargin: 0;\n\tpadding: 0;\n} */
+
+</style>
+
+<script type="text/javascript">
+// 请在这里输入代码
+
+</script>
+
+<!--@nc code=end-->
