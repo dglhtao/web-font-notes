@@ -1,0 +1,42 @@
+<!--
+@nc app=nowcoder id=66b54cfe77da4b67a177e0ab31658cd7 topic=271 question=39552 lang=Html
+2024-05-30 10:13:31
+https://www.nowcoder.com/practice/66b54cfe77da4b67a177e0ab31658cd7?tpId=271&tqId=39552
+[JS12] 模板字符串
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h2></h2>
+
+        <script>
+            var person = {
+                level: '2',
+                name: '小丽',
+                registTime: '2021-11-01',
+            }
+            var h2 = document.querySelector('h2');
+            // 补全代码
+            h2.innerHTML = `尊贵的牛客网${person.level}级用户${person.name}您好，您已经注册牛客网${Math.floor((new Date() - new Date(person.registTime)) / 1000 / 60 / 60/ 24)}天啦~`
+        </script>
+    </body>
+</html>
+
+<style>
+/* 请在这里输入代码 */
+/* html, body {\n\twidth: 100%;\n\theight: 100%;\n\tmargin: 0;\n\tpadding: 0;\n} */
+
+</style>
+
+<script type="text/javascript">
+// 请在这里输入代码
+
+</script>
+
+<!--@nc code=end-->

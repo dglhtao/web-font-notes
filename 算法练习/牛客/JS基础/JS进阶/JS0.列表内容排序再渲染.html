@@ -1,0 +1,45 @@
+<!--
+@nc app=nowcoder id=2dffcb354a484995894655a5547b0b49 topic=271 question=42138 lang=Html
+2024-05-29 10:30:55
+https://www.nowcoder.com/practice/2dffcb354a484995894655a5547b0b49?tpId=271&tqId=42138
+[JS0] 列表内容排序再渲染
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+</head>
+
+<body>
+  <ul id="myList">
+    <li id="item1">项目 1</li>
+    <li id="item3">项目 3</li>
+    <li id="item2">项目 2</li>
+    <li id="item4">项目 4</li>
+  </ul>
+
+  <script>
+    function sortAndReturnTextContent() {
+      const items = document.getElementById('myList').children;
+      // 在此补全代码
+      const arrItems = Array.from(items)
+      Array.prototype.sort.call(arrItems, (a, b) => { return a.id > b.id ? 1 : -1 })
+      document.getElementById('myList').innerHTML = arrItems.map(item => item.outerHTML).join('')
+    }
+    sortAndReturnTextContent()
+  </script>
+
+
+
+</body>
+
+</html>
+
+<!--@nc code=end-->

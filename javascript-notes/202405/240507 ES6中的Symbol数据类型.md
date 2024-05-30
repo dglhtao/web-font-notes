@@ -15,7 +15,10 @@
       - [Symbol.prototype.toString()](#symbolprototypetostring)
       - [Symbol.prototype.valueOf()](#symbolprototypevalueof)
       - [Symbol.iterator](#symboliterator)
-      - [Symbol.hasInstrance](#symbolhasinstrance)
+      - [Symbol.hasInstance](#symbolhasinstance)
+      - [Symbol.isConcatSpreadable](#symbolisconcatspreadable)
+      - [Symbol.toPrimitive](#symboltoprimitive)
+      - [Symbol.toStringTag](#symboltostringtag)
     - [1）内置Symbol](#1内置symbol)
 
 ## 1、是什么
@@ -151,12 +154,121 @@ for (const value of obj) { // 因为Symbol.iterator，表明对象可迭代，�
 
 `for...in`获取对象下属性名，所以通常在Symbol.iterator迭代器方法中，写成获取对象下属性值，使得`for...of`可以获取对象属性值，当然也可以自由定义。
 
-#### Symbol.hasInstrance
+#### Symbol.hasInstance
 
-同样也是挂载在对象下，当对象有该方法时，可以执行`instanceof`操作
-用于给对象定义一个默认迭代器方法，**有默认迭代器方法的对象才能用for...of调用迭代器**
+挂载在构造函数对象或类对象下，用于改写对象的`instanceof`方法
+默认的`a instanceof A`操作，用于判断某对象是否为另一对象的实例
 
+```JavaScript
+function Foo () {}
+console.log([] instanceof Foo) // false
+console.log((new Foo) instanceof Foo) // true
 
+Object.defineProperty(Foo, Symbol.hasInstance, {
+  value: function (obj) {
+    return obj instanceof Array
+  }
+})
+console.log([] instanceof Foo) // true
+console.log((new Foo) instanceof Foo) // false
+```
+
+ES6语法糖class写法：
+
+```JavaScript
+class Foo {
+  static [Symbol.hasInstance] (obj) {
+    return obj instanceof Array
+  }
+}
+console.log([] instanceof Foo) // true
+console.log((new Foo) instanceof Foo) // false
+```
+
+#### Symbol.isConcatSpreadable
+
+如果一个对象的Symbol.isConcatSpreadable属性为false，则在调用concat()方法时，该对象不会被展开。
+
+```JavaScript
+const arr = [1, 2]
+const arr1 = [3, 4]
+const obj1 = { 0: 3, 1: 4, length: 2, [Symbol.isConcatSpreadable]: true }
+const obj2 = { 0: 3, 1: 4, length: 2, [Symbol.isConcatSpreadable]: false }
+console.log(arr.concat(arr1)) // [1, 2, 3, 4]
+console.log(arr.concat(obj1)) // [1, 2, 3, 4]
+console.log(arr.concat(obj2)) // [1, 2, { 0: 3, 1: 4, length: 2, [Symbol.isConcatSpreadable]: false }]
+```
+
+#### Symbol.toPrimitive
+
+挂载在对象下，当对象在执行强制类型转换时，会调用返回转换后的值。可以自定义强制类型转换时的行为
+
+```JavaScript
+const obj = {
+  valueOf () { return 1 },
+  [Symbol.toPrimitive] (hint) {
+    if (hint === 'number') {
+      return this.valueOf()
+    } else
+    if (hint === 'string') {
+      return 'string'
+    } else {
+      return 'default'
+    }
+  }
+}
+console.log(1 - obj); // 0 减号将左右强制转换成number
+console.log('123' - obj); // 122
+console.log(obj - 1); // 0
+console.log(obj - '1'); // 0
+console.log(obj + 1); // default1 加号使用默认类型也可计算，所以用默认情况
+console.log(`${obj}`); // 'string'
+console.log(String(obj)); // 'string'
+console.log(obj + '123'); // 'default123'
+console.log('123' + obj); // '123default'
+```
+
+```JavaScript
+function getLongestStr (str, times = 3) {
+  const set = {}
+  for (let i = 0; i < str.length; i++) {
+    set[str[i]] ? set[str[i]]++ : set[str[i]] = 1
+  }
+  let maxTimes = 0
+  const setArr = []
+  for (let item in set) {
+    if (set[item] > maxTimes) { maxTimes = set[item] }
+    setArr.push({ key: item, value: set[item] })
+  }
+  if (maxTimes < times) { return -1 }
+  if (maxTimes === times) { return 1 }
+  setArr.sort((a, b) => b.value - a.value)
+  // console.log(setArr)
+  let maxLen = 0
+  for (let i = 0; i < setArr.length; i++) {
+    for (let j = setArr[i].value - times + 1; j > 0; j--) {
+      if (j <= maxLen) { break }
+      const testStr = setArr[i].key.repeat(j)
+      let bool = true
+      let strIndex = 0
+      for (let k = 0; k < times; k++) {
+        const index = str.slice(strIndex).indexOf(testStr)
+        if (index === -1) {
+          bool = false
+          break
+        }
+        strIndex += index + 1
+      }
+      if (bool) { maxLen = j }
+    }
+  }
+  return maxLen
+}
+```
+
+#### Symbol.toStringTag
+
+对对象执行
 
 
 ### 1）内置Symbol

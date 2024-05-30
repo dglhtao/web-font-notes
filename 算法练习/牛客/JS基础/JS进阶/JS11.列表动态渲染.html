@@ -1,0 +1,42 @@
+<!--
+@nc app=nowcoder id=347e2e88f11a4b0c89157568f26ea126 topic=271 question=39551 lang=Html
+2024-05-30 10:11:11
+https://www.nowcoder.com/practice/347e2e88f11a4b0c89157568f26ea126?tpId=271&tqId=39551
+[JS11] 列表动态渲染
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <ul></ul>
+
+        <script>
+            var people = [
+                { name: '牛油1号', id: 1, age: 20 },
+                { name: '牛油2号', id: 2, age: 21 },
+                { name: '牛油3号', id: 3, age: 19 },
+            ]
+            var ul = document.querySelector('ul');
+            // 补全代码
+            ul.innerHTML = people.map(item => `<li>${item.name} ${item.age}岁</li>`).join('')
+        </script>
+    </body>
+</html>
+
+<style>
+/* 请在这里输入代码 */
+/* html, body {\n\twidth: 100%;\n\theight: 100%;\n\tmargin: 0;\n\tpadding: 0;\n} */
+
+</style>
+
+<script type="text/javascript">
+// 请在这里输入代码
+
+</script>
+
+<!--@nc code=end-->

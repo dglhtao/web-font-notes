@@ -1,0 +1,47 @@
+<!--
+@nc app=nowcoder id=d2fa3632268b41df9bc417b74802ad8c topic=271 question=39547 lang=Html
+2024-05-30 09:13:13
+https://www.nowcoder.com/practice/d2fa3632268b41df9bc417b74802ad8c?tpId=271&tqId=39547
+[JS7] 无重复数组
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+
+        <script>
+            const _getUniqueNums = (start,end,n) => {
+                // 补全代码
+                const set = {}
+                const arr = []
+                for (let i = 0; i < n; i++) {
+                    let rand = start
+                    do {
+                        rand = Math.floor(Math.random() * (end - start + 1)) % (end - start + 1) + start
+                    } while (set[rand])
+                    set[rand] = true
+                    arr.push(rand)
+                }
+                return arr
+            }
+        </script>
+    </body>
+</html>
+
+<style>
+/* 请在这里输入代码 */
+/* html, body {\n\twidth: 100%;\n\theight: 100%;\n\tmargin: 0;\n\tpadding: 0;\n} */
+
+</style>
+
+<script type="text/javascript">
+// 请在这里输入代码
+
+</script>
+
+<!--@nc code=end-->

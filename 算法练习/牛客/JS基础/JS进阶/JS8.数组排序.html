@@ -1,0 +1,58 @@
+<!--
+@nc app=nowcoder id=18ea36ef9b0c470e9db7681eced6e8df topic=271 question=39548 lang=Html
+2024-05-30 09:30:28
+https://www.nowcoder.com/practice/18ea36ef9b0c470e9db7681eced6e8df?tpId=271&tqId=39548
+[JS8] 数组排序
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <button class='up'>销量升序</button>
+        <button class='down'>销量降序</button>
+        <ul></ul>
+
+        <script>
+            var cups = [
+                { type: 1, price: 100, color: 'black', sales: 3000, name: '牛客logo马克杯' },
+                { type: 2, price: 40, color: 'blue', sales: 1000, name: '无盖星空杯' },
+                { type: 4, price: 60, color: 'green', sales: 200, name: '老式茶杯' },
+                { type: 3, price: 50, color: 'green', sales: 600, name: '欧式印花杯' }
+            ]
+            var ul = document.querySelector('ul');
+            var upbtn = document.querySelector('.up');
+            var downbtn = document.querySelector('.down');
+            // 补全代码
+            function draw () {
+                ul.innerHTML = cups.map(item => `<li>${item.name}</li>`).join('')
+            }
+            upbtn.onclick = function () {
+                cups.sort((a, b) => a.sales - b.sales)
+                draw()
+            }
+            downbtn.onclick = function () {
+                cups.sort((a, b) => b.sales - a.sales)
+                draw()
+            }
+            draw()
+        </script>
+    </body>
+</html>
+
+<style>
+/* 请在这里输入代码 */
+/* html, body {\n\twidth: 100%;\n\theight: 100%;\n\tmargin: 0;\n\tpadding: 0;\n} */
+
+</style>
+
+<script type="text/javascript">
+// 请在这里输入代码
+
+</script>
+
+<!--@nc code=end-->

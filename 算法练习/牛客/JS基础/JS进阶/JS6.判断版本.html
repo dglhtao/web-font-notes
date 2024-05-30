@@ -1,0 +1,45 @@
+<!--
+@nc app=nowcoder id=dcc4b011c86c454aa58cb1790a8cb760 topic=271 question=39546 lang=Html
+2024-05-29 17:08:40
+https://www.nowcoder.com/practice/dcc4b011c86c454aa58cb1790a8cb760?tpId=271&tqId=39546
+[JS6] 判断版本
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8>
+    </head>
+    <body>
+    	
+        <script type="text/javascript">
+            const _shouldUpdate = (oldVersion, newVersion) => {
+                // 补全代码
+                const oldArr = oldVersion.split('.')
+                const newArr = newVersion.split('.')
+                for (let i = 0; i < Math.max(oldArr.length, newArr.length) - 1; i++) {
+                    const oldNum = Number(oldArr[i] || 0)
+                    const newNum = Number(newArr[i] || 0)
+                    if (newNum > oldNum) { return true }
+                    if (newNum < oldNum) { return false }
+                }
+                return false
+            }
+        </script>
+    </body>
+</html>
+
+<style>
+/* 请在这里输入代码 */
+/* html, body {\n\twidth: 100%;\n\theight: 100%;\n\tmargin: 0;\n\tpadding: 0;\n} */
+
+</style>
+
+<script type="text/javascript">
+// 请在这里输入代码
+
+</script>
+
+<!--@nc code=end-->

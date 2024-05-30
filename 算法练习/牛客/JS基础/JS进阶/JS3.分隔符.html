@@ -1,0 +1,40 @@
+<!--
+@nc app=nowcoder id=e5696992841841a8ab9d026324e4bb77 topic=271 question=39543 lang=Html
+2024-05-29 11:14:42
+https://www.nowcoder.com/practice/e5696992841841a8ab9d026324e4bb77?tpId=271&tqId=39543
+[JS3] 分隔符
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+       /* 填写样式 */
+    </style>
+</head>
+
+<body>
+    <!-- 填写标签 -->
+    <script type="text/javascript">
+        // 填写JavaScript
+       
+
+function _comma(number) {
+                // 补全代码
+                const str = String(Math.abs(number))
+                let result = ''
+                for (let i = 0; i < str.length; i++) {
+                    result = str[str.length - 1 - i] + (i!== 0 && i % 3 === 0 ? ',' : '') + result
+                }
+                return (number < 0 ? '-' : '') + result
+            }
+    </script>
+</body>
+
+</html>
+
+<!--@nc code=end-->

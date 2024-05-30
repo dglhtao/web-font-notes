@@ -1,0 +1,69 @@
+<!--
+@nc app=nowcoder id=46d607f9bf64458daa8798339a7336d0 topic=271 question=39561 lang=Html
+2024-05-30 16:58:27
+https://www.nowcoder.com/practice/46d607f9bf64458daa8798339a7336d0?tpId=271&tqId=39561
+[JS21] 数组过滤
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <select name="" id="">
+            <option value="0">请选择价格范围</option>
+            <option value="1">&lt100</option>
+            <option value="2">100~500</option>
+            <option value="3">&gt500</option>
+        </select>
+        <ul>
+            <li>牛客logo马克杯</li>
+            <li>无盖星空杯</li>
+            <li>老式茶杯</li>
+            <li>欧式印花杯</li>
+        </ul>
+
+        <script>
+            var cups = [
+                { type: 1, price: 100, color: 'black', sales: 60, name: '牛客logo马克杯' },
+                { type: 2, price: 40, color: 'blue', sales: 100, name: '无盖星空杯' },
+                { type: 4, price: 60, color: 'green', sales: 200, name: '老式茶杯' },
+                { type: 3, price: 50, color: 'green', sales: 600, name: '欧式印花杯' }
+            ]
+            var select = document.querySelector('select');
+            var ul = document.querySelector('ul');
+            // 补全代码
+            select.onchange = function () {
+                switch (select.value) {
+                    case '1':
+                        ul.innerHTML = cups.filter(item => item.sales < 100).map(item => `<li>${item.name}</li>`).join('')
+                        break;
+                    case '2':
+                        ul.innerHTML = cups.filter(item => item.sales >= 100 && item.sales <= 500).map(item => `<li>${item.name}</li>`).join('')
+                        break;
+                    case '3':
+                        ul.innerHTML = cups.filter(item => item.sales > 500).map(item => `<li>${item.name}</li>`).join('')
+                        break;
+                    default:
+                        ul.innerHTML = cups.map(item => `<li>${item.name}</li>`).join('')
+                }    
+            }
+        </script>
+    </body>
+</html>
+
+<style>
+/* 请在这里输入代码 */
+/* html, body {\n\twidth: 100%;\n\theight: 100%;\n\tmargin: 0;\n\tpadding: 0;\n} */
+
+</style>
+
+<script type="text/javascript">
+// 请在这里输入代码
+
+</script>
+
+<!--@nc code=end-->

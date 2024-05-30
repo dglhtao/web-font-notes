@@ -1,0 +1,34 @@
+<!--
+@nc app=nowcoder id=5d7e0cf4634344c98e6ae4eaa2336bed topic=271 question=39560 lang=Html
+2024-05-30 15:27:13
+https://www.nowcoder.com/practice/5d7e0cf4634344c98e6ae4eaa2336bed?tpId=271&tqId=39560
+[JS20] 数组扁平化
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        
+        <script>
+            const _flatten = arr => {
+                // 补全代码
+                const arr2 = []
+                arr.forEach(item => {
+                    if (Array.isArray(item)) {
+                        arr2.push(..._flatten(item))
+                    } else {
+                        arr2.push(item)
+                    }
+                })
+                return arr2
+            }
+        </script>
+    </body>
+</html>
+
+<!--@nc code=end-->
