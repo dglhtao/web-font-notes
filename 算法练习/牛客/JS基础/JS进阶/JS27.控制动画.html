@@ -1,0 +1,58 @@
+<!--
+@nc app=nowcoder id=5cc9c7c7021c4206ac825fda21d6a4bb topic=271 question=39567 lang=Html
+2024-05-31 09:34:37
+https://www.nowcoder.com/practice/5cc9c7c7021c4206ac825fda21d6a4bb?tpId=271&tqId=39567
+[JS27] 控制动画
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8>
+        <style type="text/css">
+            #rect {
+                width: 120px;
+                height: 100px;
+                background-color: black;
+                /*补全代码*/
+                animation: rect 10s linear infinite;
+            }
+            @keyframes rect {
+                from {
+                    transform: rotate(0deg);
+                }
+                to {
+                    transform: rotate(360deg);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- 补全代码 -->
+    	<div id="rect"></div>
+        <input id="range" type="range" step="1" value="1" min="1" max="10" />
+        
+        <script type="text/javascript">
+            // 补全代码
+            document.querySelector('#range').onchange = function () {
+                const rangeVal = document.querySelector('#range').value
+                document.querySelector('#rect').style.animationDuration = `${11 - rangeVal}s`
+            }
+        </script>
+    </body>
+</html>
+
+<style>
+/* 请在这里输入代码 */
+/* html, body {\n\twidth: 100%;\n\theight: 100%;\n\tmargin: 0;\n\tpadding: 0;\n} */
+
+</style>
+
+<script type="text/javascript">
+// 请在这里输入代码
+
+</script>
+
+<!--@nc code=end-->

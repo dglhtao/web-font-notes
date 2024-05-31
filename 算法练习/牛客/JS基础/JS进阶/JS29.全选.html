@@ -1,0 +1,61 @@
+<!--
+@nc app=nowcoder id=84b89f326e3c4e96bacb63296e84623a topic=271 question=39569 lang=Html
+2024-05-31 10:13:15
+https://www.nowcoder.com/practice/84b89f326e3c4e96bacb63296e84623a?tpId=271&tqId=39569
+[JS29] 全选
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+        <style>
+            ul {
+                list-style: none;
+            }
+        </style>
+    <body>
+        <ul>
+            <li>全选<input type='checkbox' id='all'></li>
+            <li>Java<input type='checkbox' class='item'></li>
+            <li>javaScript<input type='checkbox' class='item'></li>
+            <li>C++<input type='checkbox' class='item'></li>
+            <li>python<input type='checkbox' class='item'></li>
+            <li>.net<input type='checkbox' class='item'></li>
+        </ul>
+
+        <script>
+            // 补全代码
+            var all = document.querySelector('#all')
+            var options = Array.from(document.querySelectorAll('.item'))
+            // var options = Array.prototype.slice.call(document.querySelectorAll('.item'))
+            all.onchange = function () {
+                options.forEach(each => { each.checked = all.checked })
+            }
+            options.forEach(each => {
+                each.onchange = function () {
+                    const findFalse = options.find(itm => !itm.checked)
+                    if (findFalse) { all.checked = false }
+                    else { all.checked = true }
+                    // all.checked = options.every(x => x.checked)
+                }
+            })
+        </script>
+    </body>
+</html>
+
+<style>
+/* 请在这里输入代码 */
+/* html, body {\n\twidth: 100%;\n\theight: 100%;\n\tmargin: 0;\n\tpadding: 0;\n} */
+
+</style>
+
+<script type="text/javascript">
+// 请在这里输入代码
+
+</script>
+
+<!--@nc code=end-->

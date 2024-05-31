@@ -1,0 +1,40 @@
+<!--
+@nc app=nowcoder id=9911c5f8ecef4b3088ccbba397b7a984 topic=271 question=39571 lang=Html
+2024-05-31 10:59:57
+https://www.nowcoder.com/practice/9911c5f8ecef4b3088ccbba397b7a984?tpId=271&tqId=39571
+[JS31] Proxy计数器
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8>
+    </head>
+    <body>
+    	
+        <script type="text/javascript">
+            let count = 0
+            const _proxy = object => {
+                // 补全代码
+                const proxy = new Proxy(object, {
+                    get (target, property, receiver) {
+                        if (property in target) {
+                            count++
+                        } else {
+                            count--
+                        }
+                        return Reflect.get(target, property, receiver)
+                    }
+                    // set (target, property, value, receiver) {
+                    //     return Reflect.set(target, property, value, receiver)
+                    // }
+                })
+                return proxy
+            }
+        </script>
+    </body>
+</html>
+
+<!--@nc code=end-->

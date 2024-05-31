@@ -1,0 +1,42 @@
+<!--
+@nc app=nowcoder id=01dfdb7db7cc4f2bb6a3dd52f096cf10 topic=271 question=39568 lang=Html
+2024-05-31 09:47:36
+https://www.nowcoder.com/practice/01dfdb7db7cc4f2bb6a3dd52f096cf10?tpId=271&tqId=39568
+[JS28] Map保存节点
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8>
+    </head>
+    <body>
+    	<p>1</p>
+        <script type="text/javascript">
+            const _elementKey = () => {
+                // 补全代码
+                const set = new Map()
+                Array.prototype.forEach.call(document.querySelectorAll('p'), item => {
+                    set.set(item, item.innerText)
+                })
+                // set.set(document.querySelector('p'), document.querySelector('p').innerText)
+                return set
+            }
+        </script>
+    </body>
+</html>
+
+<style>
+/* 请在这里输入代码 */
+/* html, body {\n\twidth: 100%;\n\theight: 100%;\n\tmargin: 0;\n\tpadding: 0;\n} */
+
+</style>
+
+<script type="text/javascript">
+// 请在这里输入代码
+
+</script>
+
+<!--@nc code=end-->

@@ -1,0 +1,81 @@
+<!--
+@nc app=nowcoder id=1448469386f746f5941db2712372f373 topic=271 question=39574 lang=Html
+2024-05-31 16:05:51
+https://www.nowcoder.com/practice/1448469386f746f5941db2712372f373?tpId=271&tqId=39574
+[JS34] 购物面板
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8>
+    </head>
+    <body>
+    	<table>
+            <thead>
+                <caption>
+                    商品
+                </caption>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>炸鸡</td>
+                    <td>28元</td>
+                    <td><button id="zjtaiduola">-</button></td>
+                    <td><span id="zjsl">0</span></td>
+                    <td><button id="zjtaishaola">+</button></td>
+                </tr>
+                <tr>
+                    <td>可乐</td>
+                    <td>5元</td>
+                    <td><button id="kltaiduola">-</button></td>
+                    <td><span id="klsl">0</span></td>
+                    <td><button id="kltaishaola">+</button></td>
+                </tr>
+                <tr>
+                    <td>总价：</td>
+                    <td><span id="total">0</span></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <script type="text/javascript">
+            // 补全代码
+            const zjslDom = document.querySelector('#zjsl')
+            const klslDom = document.querySelector('#klsl')
+            const totalDom = document.querySelector('#total')
+            const data = {
+                zjslValue: Number(zjslDom.innerText),
+                klslValue: Number(klslDom.innerText),
+            }
+            data.totalValue = data.zjslValue * 28 + data.klslValue * 5
+            function render () {
+                zjslDom.innerHTML = data.zjslValue
+                klslDom.innerHTML = data.klslValue
+                totalDom.innerHTML = data.totalValue
+            }
+            class Observer {
+                constructor (value, callback) {
+                    this.data 
+                    this.walk(value)
+                    callback.call(this)
+                }
+            }
+        </script>
+    </body>
+</html>
+
+<style>
+/* 请在这里输入代码 */
+/* html, body {\n\twidth: 100%;\n\theight: 100%;\n\tmargin: 0;\n\tpadding: 0;\n} */
+
+</style>
+
+<script type="text/javascript">
+// 请在这里输入代码
+
+</script>
+
+<!--@nc code=end-->

@@ -1,0 +1,35 @@
+<!--
+@nc app=nowcoder id=bd313bf21dc342a981f6ed87e21308b7 topic=271 question=39572 lang=Html
+2024-05-31 14:12:00
+https://www.nowcoder.com/practice/bd313bf21dc342a981f6ed87e21308b7?tpId=271&tqId=39572
+[JS32] Proxy拦截器
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8>
+    </head>
+    <body>
+
+        <script type="text/javascript">
+            const _proxy = (object,...prototypes) => {
+                // 补全代码
+                const proxy = new Proxy(object, {
+                    get (target, property, receiver) {
+                        if (prototypes.includes(property)) {
+                            return 'noright'
+                        } else {
+                            return Reflect.get(target, property, receiver)
+                        }
+                    }
+                })
+                return proxy
+            }
+        </script>
+    </body>
+</html>
+
+<!--@nc code=end-->
