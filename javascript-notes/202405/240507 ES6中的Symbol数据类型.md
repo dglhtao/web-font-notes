@@ -228,43 +228,6 @@ console.log(obj + '123'); // 'default123'
 console.log('123' + obj); // '123default'
 ```
 
-```JavaScript
-function getLongestStr (str, times = 3) {
-  const set = {}
-  for (let i = 0; i < str.length; i++) {
-    set[str[i]] ? set[str[i]]++ : set[str[i]] = 1
-  }
-  let maxTimes = 0
-  const setArr = []
-  for (let item in set) {
-    if (set[item] > maxTimes) { maxTimes = set[item] }
-    setArr.push({ key: item, value: set[item] })
-  }
-  if (maxTimes < times) { return -1 }
-  if (maxTimes === times) { return 1 }
-  setArr.sort((a, b) => b.value - a.value)
-  // console.log(setArr)
-  let maxLen = 0
-  for (let i = 0; i < setArr.length; i++) {
-    for (let j = setArr[i].value - times + 1; j > 0; j--) {
-      if (j <= maxLen) { break }
-      const testStr = setArr[i].key.repeat(j)
-      let bool = true
-      let strIndex = 0
-      for (let k = 0; k < times; k++) {
-        const index = str.slice(strIndex).indexOf(testStr)
-        if (index === -1) {
-          bool = false
-          break
-        }
-        strIndex += index + 1
-      }
-      if (bool) { maxLen = j }
-    }
-  }
-  return maxLen
-}
-```
 
 #### Symbol.toStringTag
 

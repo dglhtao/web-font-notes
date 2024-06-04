@@ -1,0 +1,53 @@
+<!--
+@nc app=nowcoder id=687425f78096428baa58fbdcf024244a topic=271 question=39578 lang=Html
+2024-06-04 11:27:02
+https://www.nowcoder.com/practice/687425f78096428baa58fbdcf024244a?tpId=271&tqId=39578
+[JS38] 高频数据类型
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8>
+    </head>
+    <body>
+    	
+        <script type="text/javascript">
+            const _findMostType = array => {
+                // 补全代码
+                const typeSet = {}
+                array.forEach(item => {
+                    const type = typeof item
+                    typeSet[type] ? typeSet[type]++ : typeSet[type] = 1
+                })
+                let maxArr = []
+                let maxTimes = 0
+                Object.keys(typeSet).forEach(item => {
+                    if (typeSet[item] === maxTimes) {
+                        maxArr.push(item)
+                    } else
+                    if (typeSet[item] > maxTimes) {
+                        maxTimes = typeSet[item]
+                        maxArr = [item]
+                    }
+                })
+                return maxArr.concat([maxTimes])
+            }
+        </script>
+    </body>
+</html>
+
+<style>
+/* 请在这里输入代码 */
+/* html, body {\n\twidth: 100%;\n\theight: 100%;\n\tmargin: 0;\n\tpadding: 0;\n} */
+
+</style>
+
+<script type="text/javascript">
+// 请在这里输入代码
+
+</script>
+
+<!--@nc code=end-->

@@ -1,0 +1,77 @@
+<!--
+@nc app=nowcoder id=d1452ec52a134b328f23b97c02b230bd topic=271 question=39577 lang=Html
+2024-06-04 09:49:06
+https://www.nowcoder.com/practice/d1452ec52a134b328f23b97c02b230bd?tpId=271&tqId=39577
+[JS37] 双向绑定
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <style>
+            ul {
+                list-style: none;
+            }
+        </style>
+        <input type="text">
+        <ul></ul>
+
+        <script>
+            var ul = document.querySelector('ul');
+            var person = { sex: '男', age: '25', name: '王大锤', height: 28, weight: 32 };
+            var inp = document.querySelector('input');
+            inp.value = person.weight;
+            const _render = () => {
+                var str = `<li>姓名：<span>${person.name}</span></li>
+                           <li>性别：<span>${person.sex}</span></li>
+                           <li>年龄：<span>${person.age}</span></li>
+                           <li>身高：<span>${person.height}</span></li>
+                           <li>体重：<span>${person.weight}</span></li>`
+                ul.innerHTML = str;
+                inp.value = person.weight;
+            }
+            _render(ul);
+            // 补全代码
+            function defineReactive (target, property, value) {
+                Object.defineProperty(target, property, {
+                    get: function () { return value },
+                    set: function (newValue) {
+                        if (newValue !== value) {
+                            value = newValue
+                            _render()
+                        }
+                    }
+                })
+            }
+            function observe (obj) {
+                if (typeof obj !== 'object' || obj === null) { return }
+                for (let key in obj) {
+                    defineReactive(obj, key, obj[key])
+                    observe(obj[key])
+                }
+            }
+            observe(person)
+            inp.oninput = function () {
+                person.weight = inp.value
+            }
+        </script>
+    </body>
+</html>
+
+<style>
+/* 请在这里输入代码 */
+/* html, body {\n\twidth: 100%;\n\theight: 100%;\n\tmargin: 0;\n\tpadding: 0;\n} */
+
+</style>
+
+<script type="text/javascript">
+// 请在这里输入代码
+
+</script>
+
+<!--@nc code=end-->

@@ -1,0 +1,77 @@
+<!--
+@nc app=nowcoder id=a283d2c284ed49468c3b0f6ec0312b0f topic=271 question=39580 lang=Html
+2024-06-04 14:31:26
+https://www.nowcoder.com/practice/a283d2c284ed49468c3b0f6ec0312b0f?tpId=271&tqId=39580
+[JS40] 虚拟DOM
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+
+        <script>
+            var vnode = {
+                tag: 'ul',
+                props: {
+                    class: 'list'
+                },
+                text: '',
+                children: [
+                    {
+                        tag: "li",
+                        props: {
+                            class: "item"
+                        },
+                        text: '',
+                        children: [
+                            {
+                                tag: undefined,
+                                props: {},
+                                text: '牛客网',
+                                children: []
+                            }
+                        ]
+                    },
+                    {
+                        tag: "li",
+                        props: {},
+                        text: '',
+                        children: [
+                            {
+                                tag: undefined,
+                                props: {},
+                                text: 'nowcoder',
+                                children: []
+                            }
+                        ]
+                    }
+                ]
+            }
+            const _createElm = vnode => {
+                // 补全代码
+                const getDom = node => {
+                    return `<${node.tag || 'span'} ${Object.keys(node.props).map(key => `${key}="${node.props[key]}"`).join(' ')}>${node.text}${node.children.map(item => getDom(item)).join('')}<${node.tag || 'span'}/>`
+                }
+                return new DOMParser().parseFromString(getDom(vnode), 'text/html').body.children[0]
+            }
+        </script>
+    </body>
+</html>
+
+<style>
+/* 请在这里输入代码 */
+/* html, body {\n\twidth: 100%;\n\theight: 100%;\n\tmargin: 0;\n\tpadding: 0;\n} */
+
+</style>
+
+<script type="text/javascript">
+// 请在这里输入代码
+
+</script>
+
+<!--@nc code=end-->

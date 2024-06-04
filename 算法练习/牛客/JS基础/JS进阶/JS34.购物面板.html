@@ -50,18 +50,42 @@ https://www.nowcoder.com/practice/1448469386f746f5941db2712372f373?tpId=271&tqId
                 zjslValue: Number(zjslDom.innerText),
                 klslValue: Number(klslDom.innerText),
             }
-            data.totalValue = data.zjslValue * 28 + data.klslValue * 5
+            function dataChange () {
+                data.totalValue = data.zjslValue * 28 + data.klslValue * 5
+                render()
+            }
             function render () {
                 zjslDom.innerHTML = data.zjslValue
                 klslDom.innerHTML = data.klslValue
                 totalDom.innerHTML = data.totalValue
             }
-            class Observer {
-                constructor (value, callback) {
-                    this.data 
-                    this.walk(value)
-                    callback.call(this)
+            function defineReactive (target, property, value) {
+                if (arguments.length === 2) { value = target[property]}
+                Object.defineProperty(target, property, {
+                    get: function () { return value },
+                    set: function (newValue) { value = newValue; dataChange() }
+                })
+            }
+            function observe (obj) {
+                if (typeof obj !== 'object' || obj === null) { return }
+                for (let key in obj) {
+                    defineReactive(obj, key, obj[key])
+                    observe(obj[key])
                 }
+            }
+            observe(data)
+            dataChange()
+            document.querySelector('#zjtaiduola').onclick = function () {
+                if (data.zjslValue > 0) { data.zjslValue-- }
+            }
+            document.querySelector('#zjtaishaola').onclick = function () {
+                data.zjslValue++ 
+            }
+            document.querySelector('#kltaiduola').onclick = function () {
+                if (data.klslValue > 0) { data.klslValue-- }
+            }
+            document.querySelector('#kltaishaola').onclick = function () {
+                data.klslValue++ 
             }
         </script>
     </body>

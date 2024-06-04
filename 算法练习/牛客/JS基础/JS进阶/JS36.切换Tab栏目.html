@@ -1,0 +1,87 @@
+<!--
+@nc app=nowcoder id=70916dc9292e470eb70ac2a0d3b9a404 topic=271 question=39576 lang=Html
+2024-06-03 16:02:30
+https://www.nowcoder.com/practice/70916dc9292e470eb70ac2a0d3b9a404?tpId=271&tqId=39576
+[JS36] 切换Tab栏目
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            ul {
+                padding: 0;
+                margin: 0;
+                list-style: none;
+            }
+
+            .options li {
+                float: left;
+                width: 100px;
+                height: 40px;
+                line-height: 40px;
+                text-align: center;
+                border: solid 1px #ddd;
+            }
+
+            .items li {
+                width: 405px;
+                height: 405px;
+                display: none;
+                border: solid 1px #ddd;
+            }
+        </style>
+    </head>
+    <body>
+        <ul class='options'>
+            <li data-type="0" style='background-color: #25bb9b;'>题库</li>
+            <li data-type="1">面试</li>
+            <li data-type="2">学习</li>
+            <li data-type="3">求职</li>
+        </ul>
+        <ul class='items'>
+            <li style="display: block;">牛客题库，包含编程题、选择题等</li>
+            <li>为你的面试提供一站式服务</li>
+            <li>校招学习来牛客</li>
+            <li>求职中有什么难题，可以联系我们</li>
+        </ul>
+
+        <script>
+            var options = document.querySelector('.options');
+            var optionItems = [].slice.call(document.querySelectorAll('.options li'));
+            var items = [].slice.call(document.querySelectorAll('.items li'));
+            // 补全代码
+            function initStyle () {
+                optionItems.forEach(item => {
+                    item.style.backgroundColor = '#fff'
+                })
+                items.forEach(item => {
+                    item.style.display = 'none'
+                })
+            }
+            options.onclick = function (e) {
+                initStyle()
+                const item = e.target
+                item.style.backgroundColor = '#25bb9b'
+                const dataType = item.getAttribute('data-type')
+                items[Number(dataType)].style.display = 'block'
+            }
+        </script>
+    </body>
+</html>
+
+<style>
+/* 请在这里输入代码 */
+/* html, body {\n\twidth: 100%;\n\theight: 100%;\n\tmargin: 0;\n\tpadding: 0;\n} */
+
+</style>
+
+<script type="text/javascript">
+// 请在这里输入代码
+
+</script>
+
+<!--@nc code=end-->

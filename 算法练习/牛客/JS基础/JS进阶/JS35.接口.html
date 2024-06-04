@@ -1,0 +1,56 @@
+<!--
+@nc app=nowcoder id=8f91b606181746558e8a398e513d1078 topic=271 question=39575 lang=Html
+2024-06-03 14:14:13
+https://www.nowcoder.com/practice/8f91b606181746558e8a398e513d1078?tpId=271&tqId=39575
+[JS35] 接口
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8>
+    </head>
+    <body>
+    	
+        <script type="text/javascript">
+            let data = [
+                {name: 'nowcoder1'},
+                {name: 'nowcoder2'}
+            ]
+            
+            const _api = string => {
+                // 补全代码
+                if (string === 'get?') { return data }
+                if (string.indexOf('update?') !== -1) {
+                    const valSet = {}
+                    string.slice(7).split('&').forEach(item => {
+                        const [key, value] = item.split('=')
+                        valSet[key] = value
+                    })
+                    console.log('valSet', valSet)
+                    data.forEach(item => {
+                        if (item.name === valSet.name) {
+                            item.name = valSet.to
+                        }
+                    })
+                    return data
+                }
+            }
+        </script>
+    </body>
+</html>
+
+<style>
+/* 请在这里输入代码 */
+/* html, body {\n\twidth: 100%;\n\theight: 100%;\n\tmargin: 0;\n\tpadding: 0;\n} */
+
+</style>
+
+<script type="text/javascript">
+// 请在这里输入代码
+
+</script>
+
+<!--@nc code=end-->

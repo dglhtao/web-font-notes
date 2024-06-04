@@ -1,0 +1,63 @@
+<!--
+@nc app=nowcoder id=1b7437b538af4689b1509db2068abe55 topic=271 question=39579 lang=Html
+2024-06-04 13:56:05
+https://www.nowcoder.com/practice/1b7437b538af4689b1509db2068abe55?tpId=271&tqId=39579
+[JS39] 字体高亮
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <input type="text">
+        <button style="margin-right: 80px">查询</button>
+        <div class="text" style="margin-top: 70px">
+            牛客网隶属于北京牛客科技有限公司，牛客网成立于 2014 年 9 月，是以科技和创新驱动的教育科技公司。牛客网坚持以前沿技术服务于技术、以人工智能和大数据提升学习效率，专注探索在线教育创新模式，致力于为技术求职者提供能力提升解决方案，同时为企业级用户提供更高效的招聘解决方案，并为二者搭建桥梁，构建从学习���职业的良性生态圈。
+    发展至今，牛客网在技术类求职备考、社群交流、企业招聘服务等多个垂直领域影响力均在行业中遥遥领先，产品矩阵包括IT题库、在线编程练习、线上课程、交流社区、竞赛平台、笔面试服务、ATS系统等，用户覆盖全国高校百万IT学习者并在高速增长中，同时也为京东、百度、腾讯、滴滴、今日头条、华为等200多家企业提供校园招聘、编程竞赛等线上服务，并收获良好口碑。
+        </div>
+
+        <script>
+            var text = document.querySelector(".text");
+            var search = document.querySelector("input");
+            const btn = document.querySelector("button");
+            const textStr = JSON.parse(JSON.stringify(text.innerHTML))
+            btn.onclick = () => {
+                // 补全代码
+                let index = textStr.indexOf(search.value)
+                if (index !== -1 && search.value !== '') {
+                    const indexArr = [index]
+                    do {
+                        const idx = textStr.slice(index + search.value.length + 1).indexOf(search.value)
+                        if (idx === -1) { break } 
+                        index += idx + search.value.length + 1
+                        indexArr.push(index)
+                    } while (true)
+                    let txt = textStr
+                    for (let i = indexArr.length - 1; i >= 0; i--) {
+                        txt = txt.slice(0, indexArr[i]) + `<b style="background-color: yellow">${search.value}</b>` + txt.slice(indexArr[i] + search.value.length)
+                    }
+                    text.innerHTML = txt
+                } else {
+                    text.innerHTML = textStr
+                }
+            }
+        </script>
+    </body>
+</html>
+
+<style>
+/* 请在这里输入代码 */
+/* html, body {\n\twidth: 100%;\n\theight: 100%;\n\tmargin: 0;\n\tpadding: 0;\n} */
+
+</style>
+
+<script type="text/javascript">
+// 请在这里输入代码
+
+</script>
+
+<!--@nc code=end-->
