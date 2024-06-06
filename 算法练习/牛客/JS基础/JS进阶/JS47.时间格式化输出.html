@@ -1,0 +1,55 @@
+<!--
+@nc app=nowcoder id=a789783e7c984f10a0bf649f6d4e2d59 topic=271 question=39599 lang=Html
+2024-06-05 09:16:46
+https://www.nowcoder.com/practice/a789783e7c984f10a0bf649f6d4e2d59?tpId=271&tqId=39599
+[JS47] 时间格式化输出
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+       /* 填写样式 */
+    </style>
+</head>
+
+<body>
+    <!-- 填写标签 -->
+    <script type="text/javascript">
+        // 填写JavaScript
+        function formatDate (date, formatStr) {
+            const weekDay =  ['日', '一', '二', '三', '四', '五', '六']
+            // IE 不支持padStart
+            const formatEvent = function (str) {
+                str = String(str)
+                if (str.length < 2) { return '0' + str }
+                return str
+
+            }
+            formatStr = formatStr.replace(/yyyy/g, date.getFullYear())
+            formatStr = formatStr.replace(/yy/g, date.getFullYear() % 100)
+            formatStr = formatStr.replace(/MM/g, formatEvent(date.getMonth() + 1))
+            formatStr = formatStr.replace(/M/g, date.getMonth() + 1)
+            formatStr = formatStr.replace(/dd/g, formatEvent(date.getDate()))
+            formatStr = formatStr.replace(/d/g, date.getDate())
+            formatStr = formatStr.replace(/HH/g, formatEvent(date.getHours()))
+            formatStr = formatStr.replace(/H/g, date.getHours())
+            formatStr = formatStr.replace(/hh/g, formatEvent(date.getHours() > 12 ? date.getHours() - 12 : date.getHours()))
+            formatStr = formatStr.replace(/h/g, date.getHours() > 12 ? date.getHours() - 12 : date.getHours())
+            formatStr = formatStr.replace(/mm/g, formatEvent(date.getMinutes()))
+            formatStr = formatStr.replace(/m/g, date.getMinutes())
+            formatStr = formatStr.replace(/ss/g, formatEvent(date.getSeconds()))
+            formatStr = formatStr.replace(/s/g, date.getSeconds())
+            formatStr = formatStr.replace(/w/g, weekDay[date.getDay()])
+            return formatStr
+        }
+    </script>
+</body>
+
+</html>
+
+<!--@nc code=end-->

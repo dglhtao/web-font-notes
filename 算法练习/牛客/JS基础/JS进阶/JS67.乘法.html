@@ -1,0 +1,34 @@
+<!--
+@nc app=nowcoder id=6429776e4630435cbc3eeb36bdf41f83 topic=271 question=39617 lang=Html
+2024-06-05 14:31:31
+https://www.nowcoder.com/practice/6429776e4630435cbc3eeb36bdf41f83?tpId=271&tqId=39617
+[JS67] 乘法
+-->
+
+<!--@nc code=start-->
+
+<!-- 请在此处编写你的代码 -->\n<!-- <div id="app"> Hello Nowcoder </div> -->
+
+<style>
+/* 请在这里输入代码 */
+/* html, body {\n\twidth: 100%;\n\theight: 100%;\n\tmargin: 0;\n\tpadding: 0;\n} */
+
+</style>
+
+<script type="text/javascript">
+// 请在这里输入代码
+function multiply(a, b) {
+  const strA = String(a)
+  const strB = String(b)
+  const pointA = strA.indexOf('.')
+  const pointB = strB.indexOf('.')
+  const digitA = pointA !== -1 ? strA.length - pointA - 1 : 0
+  const digitB = pointB !== -1 ? strB.length - pointB - 1 : 0
+  const c = a * b
+  const digC = Math.round((c - Math.floor(c)) * Math.pow(10, digitA + digitB)) / Math.pow(10, digitA + digitB)
+  return Math.floor(c) + digC
+}
+
+</script>
+
+<!--@nc code=end-->

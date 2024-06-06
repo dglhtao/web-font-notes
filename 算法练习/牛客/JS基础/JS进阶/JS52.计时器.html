@@ -1,0 +1,44 @@
+<!--
+@nc app=nowcoder id=72c661d926494bd8a50608506915268c topic=271 question=39604 lang=Html
+2024-06-05 11:10:44
+https://www.nowcoder.com/practice/72c661d926494bd8a50608506915268c?tpId=271&tqId=39604
+[JS52] 计时器
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+       /* 填写样式 */
+    </style>
+</head>
+
+<body>
+    <!-- 填写标签 -->
+    <script type="text/javascript">
+        // 填写JavaScript
+        function count(start, end) {
+            const obj = { count: 0 }
+            console.log(start + obj.count++)
+            const timer = setInterval(() => {
+                if (start + obj.count > end) {
+                    obj.cancel()
+                    return
+                }
+                console.log(start + obj.count++)
+            }, 100)
+            obj.cancel = function () {
+                clearInterval(timer)
+            }
+            return obj
+}
+    </script>
+</body>
+
+</html>
+
+<!--@nc code=end-->

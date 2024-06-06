@@ -1,0 +1,39 @@
+<!--
+@nc app=nowcoder id=667dd00250d04d06989ed1b69102c9ab topic=271 question=39643 lang=Html
+2024-06-05 15:18:11
+https://www.nowcoder.com/practice/667dd00250d04d06989ed1b69102c9ab?tpId=271&tqId=39643
+[JS76] 判断是否符合 USD 格式
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+       /* 填写样式 */
+    </style>
+</head>
+
+<body>
+    <!-- 填写标签 -->
+    <script type="text/javascript">
+        // 填写JavaScript
+        function isUSD(str) {
+            let point = str.indexOf('.')
+            if (point !== -1) {
+                if (str.length - 1 !== point + 2) { return false}
+            }
+            if (point === -1) { point = str.length }
+            point--
+            const leftStr = str.slice(0, point + 1)
+            return /^\$[1-9]\d{0,2}(,\d{3})*$/.test(leftStr)
+}
+    </script>
+</body>
+
+</html>
+
+<!--@nc code=end-->

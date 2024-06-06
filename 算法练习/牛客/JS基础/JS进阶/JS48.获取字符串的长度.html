@@ -1,0 +1,36 @@
+<!--
+@nc app=nowcoder id=e436bbc408744b73b69a8925fac26efc topic=271 question=39600 lang=Html
+2024-06-05 10:34:45
+https://www.nowcoder.com/practice/e436bbc408744b73b69a8925fac26efc?tpId=271&tqId=39600
+[JS48] 获取字符串的长度
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+       /* 填写样式 */
+    </style>
+</head>
+
+<body>
+    <!-- 填写标签 -->
+    <script type="text/javascript">
+        // 填写JavaScript
+        function strLength(s, bUnicode255For1) {
+            if (bUnicode255For1) { return s.length }
+            return s.length + Array.prototype.reduce.call(s, (prev, cur) => {
+                if (cur.charCodeAt(0) > 255) { return prev + 1 }
+                return prev
+            }, 0)
+}
+    </script>
+</body>
+
+</html>
+
+<!--@nc code=end-->

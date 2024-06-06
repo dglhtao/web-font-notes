@@ -1,0 +1,37 @@
+<!--
+@nc app=nowcoder id=7b74386695cc48349af37196f45e62a8 topic=271 question=39616 lang=Html
+2024-06-05 14:26:50
+https://www.nowcoder.com/practice/7b74386695cc48349af37196f45e62a8?tpId=271&tqId=39616
+[JS66] 二进制转换
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+       /* 填写样式 */
+    </style>
+</head>
+
+<body>
+    <!-- 填写标签 -->
+    <script type="text/javascript">
+        // 填写JavaScript
+        function convertToBinary(num) {
+            let str = ''
+            while (num > 0 || str.length < 8) {
+                str = num % 2 + str
+                num = Math.floor(num / 2)
+            }
+            return str
+}
+    </script>
+</body>
+
+</html>
+
+<!--@nc code=end-->

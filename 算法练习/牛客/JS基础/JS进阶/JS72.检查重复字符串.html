@@ -1,0 +1,38 @@
+<!--
+@nc app=nowcoder id=5ef31f11adf64d9fb18d74860e9ab873 topic=271 question=39622 lang=Html
+2024-06-05 14:56:31
+https://www.nowcoder.com/practice/5ef31f11adf64d9fb18d74860e9ab873?tpId=271&tqId=39622
+[JS72] 检查重复字符串
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+       /* 填写样式 */
+    </style>
+</head>
+
+<body>
+    <!-- 填写标签 -->
+    <script type="text/javascript">
+        // 填写JavaScript
+        function containsRepeatingLetter(str) {
+            const set = {}
+            for (let i = 0; i < str.length; i++) {
+                if (/[^a-zA-Z]/.test(str[i])) { continue }
+                if (set[str[i]]) { return true }
+                else { set[str[i]] = true }
+            }
+            return false
+}
+    </script>
+</body>
+
+</html>
+
+<!--@nc code=end-->

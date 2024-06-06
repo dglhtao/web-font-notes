@@ -1,0 +1,29 @@
+<!--
+@nc app=nowcoder id=2ded24e34ec34325a62d42d0c8479bae topic=271 question=39627 lang=Html
+2024-06-05 16:10:48
+https://www.nowcoder.com/practice/2ded24e34ec34325a62d42d0c8479bae?tpId=271&tqId=39627
+[JS78] 将字符串转换为驼峰格式
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <script type="text/javascript">
+        function cssStyle2DomStyle(sName) {
+			 // 填写JavaScript
+             return sName.split('-').filter(item => item).map((item, index) =>  index === 0 ? item : item[0].toUpperCase() + item.slice(1)).join('')
+		}
+       
+    </script>
+</body>
+
+</html>
+
+<!--@nc code=end-->

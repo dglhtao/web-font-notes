@@ -1,0 +1,39 @@
+<!--
+@nc app=nowcoder id=4578a70b955848ff8e95c1f88c94c1ba topic=271 question=39630 lang=Html
+2024-06-05 18:17:15
+https://www.nowcoder.com/practice/4578a70b955848ff8e95c1f88c94c1ba?tpId=271&tqId=39630
+[JS81] 替换链接
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+       /* 填写样式 */
+        a {
+    color: #00bc9b;
+}
+    </style>
+</head>
+
+<body>
+    <!-- 填写标签 -->
+    <div id="jsContainer">
+这里会给出一段随机文本，可能包含一些链接，比如https://www.baidu.com，或者 www.baidu.com?from=onlineExam，如果出现链接文本，请给该链接文本加上链接标签，用户点击后能直接在新窗口中打开该链接。
+</div>
+    <script type="text/javascript">
+        // 填写JavaScript
+        function link() {
+            const dom = document.querySelector('#jsContainer')
+            dom.innerHTML = dom.innerHTML.replace(/((http(s)?:\/\/(w{3}\.))|(w{3}\.))(\w+\.)+(\w+)(([?&]\w+=[\w%]+)|([\/#]\w*))*/g, url => `<a href="${/^www./.test(url) ? `http://${url}` : url}" target="_blank">${url}</a>`)
+}
+    </script>
+</body>
+
+</html>
+
+<!--@nc code=end-->

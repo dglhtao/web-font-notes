@@ -1,0 +1,191 @@
+<!--
+@nc app=nowcoder id=4d712994d0364a159f8169b7b0e74d04 topic=271 question=39632 lang=Html
+2024-06-06 13:50:42
+https://www.nowcoder.com/practice/4d712994d0364a159f8169b7b0e74d04?tpId=271&tqId=39632
+[JS83] 双色球机选一注
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+       .main .balls {
+    width: 450px;
+    padding: 30px 10px 10px;
+    margin-bottom: 20px;
+    position: relative;
+    border-radius: 4px;
+}
+
+.main .balls:after {
+    content: '\20';
+    clear: both;
+    display: block;
+    height: 0;
+    overflow: hidden;
+}
+
+.main .balls span {
+    position: absolute;
+    left: 12px;
+    top: 5px;
+    font-size: 13px;
+}
+
+.main b {
+    float: left;
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
+    background: #FFF;
+    border: 1px solid;
+    border-radius: 50%;
+    line-height: 30px;
+    text-align: center;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+.main .red .active {
+    background: #f56c6c;
+    color: #FFF;
+}
+
+.main .blue .active {
+    background: #3a8ee6;
+    color: #FFF;
+}
+
+.main .red {
+    background: #feeff0;
+}
+
+.main .red b {
+    border-color: #f56c6c;
+}
+
+.main .blue {
+    background: #ecf8ff;
+}
+
+.main .blue b {
+    border-color: #3a8ee6;
+}
+    </style>
+</head>
+
+<body>
+    <!-- 填写标签 -->
+    <div class="main">
+    <div class="balls red">
+        <span>红球</span>
+        <div class="balls-wp">
+            <b>01</b>
+            <b>02</b>
+            <b>03</b>
+            <b>04</b>
+            <b>05</b>
+            <b>06</b>
+            <b>07</b>
+            <b>08</b>
+            <b>09</b>
+            <b>10</b>
+            <b>11</b>
+            <b>12</b>
+            <b>13</b>
+            <b>14</b>
+            <b>15</b>
+            <b>16</b>
+            <b>17</b>
+            <b>18</b>
+            <b>19</b>
+            <b>20</b>
+            <b>21</b>
+            <b>22</b>
+            <b>23</b>
+            <b>24</b>
+            <b>25</b>
+            <b>26</b>
+            <b>27</b>
+            <b>28</b>
+            <b>29</b>
+            <b>30</b>
+            <b>31</b>
+            <b>32</b>
+            <b>33</b>
+        </div>
+    </div>
+    <div class="balls blue">
+        <span>蓝球</span>
+        <div class="balls-wp">
+            <b>01</b>
+            <b>02</b>
+            <b>03</b>
+            <b>04</b>
+            <b>05</b>
+            <b>06</b>
+            <b>07</b>
+            <b>08</b>
+            <b>09</b>
+            <b>10</b>
+            <b>11</b>
+            <b>12</b>
+            <b>13</b>
+            <b>14</b>
+            <b>15</b>
+            <b>16</b>
+        </div>
+    </div>
+</div>
+    <script type="text/javascript">
+        // 填写JavaScript
+randomFn();
+
+function randomFn() {
+    const redDom = document.querySelector('.balls.red .balls-wp')
+    const blueDom = document.querySelector('.balls.blue .balls-wp')
+    const redArr = Array.from(redDom.children)
+    const blueArr = Array.from(blueDom.children)
+    const arr1 = []
+    for (let i = 0; i < 6; i++) {
+        let index = Math.floor(Math.random() * redArr.length)
+        arr1.push(redArr.splice(index, 1)[0])
+    }
+    arr1.sort((a, b) => Number(a.innerHTML) - Number(b.innerHTML))
+
+    const arr2 = []
+    let index = Math.floor(Math.random() * blueArr.length)
+    arr2.push(blueArr.splice(index, 1)[0])
+
+    arr1.forEach(item => { item.classList.add('active') })
+    redArr.forEach(item => { item.classList.remove('active') })
+    arr2.forEach(item => { item.classList.add('active') })
+    blueArr.forEach(item => { item.classList.remove('active') })
+
+    for (let i = 0; i < 6; i++) {
+        redDom.insertBefore(arr1[i], redArr[0])
+    }
+    blueDom.insertBefore(arr2[0], blueArr[0])
+
+    // redArr.sort((a, b) => Number(a.innerHTML) - Number(b.innerHTML))
+    // blueArr.sort((a, b) => Number(a.innerHTML) - Number(b.innerHTML))
+    // for (let i = redArr.length - 1; i > 0 ; i--) {
+    //     redDom.insertBefore(redArr[i - 1], redArr[i])
+    // }
+    // for (let i = blueArr.length - 1; i > 0 ; i--) {
+    //     blueDom.insertBefore(blueArr[i - 1], blueArr[i])
+    // }
+
+    return arr1.map(item => item.innerHTML).join(',') + '|' + arr2[0].innerHTML
+}
+    </script>
+</body>
+
+</html>
+
+<!--@nc code=end-->

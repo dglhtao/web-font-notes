@@ -1,0 +1,36 @@
+<!--
+@nc app=nowcoder id=871a468deecf453589ea261835d6b78b topic=271 question=39603 lang=Html
+2024-06-05 11:09:13
+https://www.nowcoder.com/practice/871a468deecf453589ea261835d6b78b?tpId=271&tqId=39603
+[JS51] 查找重复元素
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+       /* 填写样式 */
+    </style>
+</head>
+
+<body>
+    <!-- 填写标签 -->
+    <script type="text/javascript">
+        // 填写JavaScript
+        function duplicates(arr) {
+            const set = {}
+            arr.forEach(item => {
+                set[item] ? set[item]++ : set[item] = 1
+            })
+            return Object.keys(set).filter(item => set[item] > 1)
+}
+    </script>
+</body>
+
+</html>
+
+<!--@nc code=end-->

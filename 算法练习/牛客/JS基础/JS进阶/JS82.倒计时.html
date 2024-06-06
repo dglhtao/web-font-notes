@@ -1,0 +1,62 @@
+<!--
+@nc app=nowcoder id=d86defce50ea45dd92c7a4fbde17d64b topic=271 question=39631 lang=Html
+2024-06-06 10:57:47
+https://www.nowcoder.com/practice/d86defce50ea45dd92c7a4fbde17d64b?tpId=271&tqId=39631
+[JS82] 倒计时
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+       /* 填写样式 */
+        .hide{
+	display: none;
+}
+    </style>
+</head>
+
+<body>
+    <!-- 填写标签 -->
+    <div id="jsCountdown">
+    <span>01天</span>
+    <span>02:</span>
+    <span>03:</span>
+    <span>04</span>
+</div>
+    <script type="text/javascript">
+        // 填写JavaScript
+        function second(second) {
+    return {
+        day: Math.floor(second / 86400),
+        hour: Math.floor(second / 3600) % 24,
+        min: Math.floor(second / 60) % 60,
+        second: second % 60
+    }
+}
+
+function render(data) {
+    function twoStr (num) {
+        if (num < 10) { return `0${num}`}
+        return `${num}`
+    }
+    const jsCountdown = document.querySelector('#jsCountdown')
+    if (data.day) {
+        jsCountdown.children[0].className = '' 
+        jsCountdown.children[0].innerHTML = `${twoStr(data.day)}天`
+    }
+    else { jsCountdown.children[0].className = 'hide' }
+    jsCountdown.children[1].innerHTML = `${twoStr(data.hour)}:`
+    jsCountdown.children[2].innerHTML = `${twoStr(data.min)}:`
+    jsCountdown.children[3].innerHTML = `${twoStr(data.second)}`
+}
+    </script>
+</body>
+
+</html>
+
+<!--@nc code=end-->

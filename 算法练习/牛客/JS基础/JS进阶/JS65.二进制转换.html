@@ -1,0 +1,38 @@
+<!--
+@nc app=nowcoder id=4123561150114d119ba41f28219a454f topic=271 question=39615 lang=Html
+2024-06-05 14:24:11
+https://www.nowcoder.com/practice/4123561150114d119ba41f28219a454f?tpId=271&tqId=39615
+[JS65] 二进制转换
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+       /* 填写样式 */
+    </style>
+</head>
+
+<body>
+    <!-- 填写标签 -->
+    <script type="text/javascript">
+        // 填写JavaScript
+        function base10(str) {
+            let two = 1
+            let value = 0
+            for (let i = str.length - 1; i >= 0; i--) {
+                value += Number(str.charAt(i)) * two
+                two *= 2
+            }
+            return value
+}
+    </script>
+</body>
+
+</html>
+
+<!--@nc code=end-->

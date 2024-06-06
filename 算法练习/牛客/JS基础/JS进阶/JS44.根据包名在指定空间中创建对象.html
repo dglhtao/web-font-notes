@@ -21,7 +21,12 @@ https://www.nowcoder.com/practice/a82e035501504cedbe881d08c824a381?tpId=271&tqId
     <!-- 填写标签 -->
     <script type="text/javascript">
         function namespace(oNamespace, sPackage) {
-  
+            var obj = oNamespace
+            sPackage.split('.').forEach(item => {
+                typeof obj[item] !== 'object' ? obj[item] = {} : null
+                obj = obj[item]
+            })
+            return oNamespace
 }
 
     </script>
