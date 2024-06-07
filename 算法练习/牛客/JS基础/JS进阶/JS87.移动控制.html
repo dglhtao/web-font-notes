@@ -1,0 +1,81 @@
+<!--
+@nc app=nowcoder id=84af7932f53f4bbeaa1fa079a138bb35 topic=271 question=39636 lang=Html
+2024-06-07 16:08:33
+https://www.nowcoder.com/practice/84af7932f53f4bbeaa1fa079a138bb35?tpId=271&tqId=39636
+[JS87] 移动控制
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+       table.game {
+    font-size: 14px;
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+}
+table.game td {
+    border: 1px solid #e1e1e1;
+    padding: 0;
+    height: 30px;
+    text-align: center;
+}
+table.game td.current{
+    background: #1890ff;
+}
+    </style>
+</head>
+
+<body>
+   <div id="jsContainer">
+    <table class="game">
+        <tbody>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td class="current"></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        </tbody>
+    </table>
+</div>
+    <script type="text/javascript">
+        function bind() {
+
+            document.onkeydown = event => {
+                if (!event) return;
+                var code = event.keyCode || '';
+                if (!{'37': 1, '38': 1, '39': 1, '40': 1}[code]) return;
+                event.preventDefault && event.preventDefault();
+                //TODO: 请实现按键控制
+                const trs = Array.from(document.querySelectorAll('tr'))
+                const node = document.querySelector('.current')
+                let x = 0, y = 0, n = 0, m = 0
+                m = trs.length
+                n = trs[0].children.length
+                x = Array.from(node.parentNode.children).indexOf(node)
+                y = trs.indexOf(node.parentNode)
+                if (code === 38) { y-- }
+                if (code === 40) { y++ }
+                if (code === 37) { x-- }
+                if (code === 39) { x++ }
+                y = (y + m) % m
+                x = (x + n) % n
+                node.classList.remove('current')
+                trs[y].children[x].classList.add('current')
+            };
+        }
+    </script>
+</body>
+
+</html>
+
+<!--@nc code=end-->

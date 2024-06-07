@@ -75,7 +75,37 @@ https://www.nowcoder.com/practice/b403d1051e5d4568912e6d265e1e2cde?tpId=271&tqId
 </div>
     <script type="text/javascript">
         function output(str) {
-
+            const dom = document.querySelector('.content')
+            const blink = document.querySelector('#jsBlink')
+            // Array.from(dom.children).forEach(item => {
+            //     dom.removeChild(item)
+            // })
+            dom.innerHTML = ''
+            dom.appendChild(blink)
+            const list = []
+            str.split('').forEach(item => {
+                let node
+                if (item === '\n') {
+                    node = document.createElement('br')
+                } else {
+                    node = document.createElement('span')
+                    node.classList.add('word')
+                    node.classList.add(`color${Math.floor(Math.random() * 24) + 1}`)
+                    if (item === ' ') { node.innerHTML = '&nbsp;' } else
+                    if (item === '>') { node.innerHTML = '&gt;' } else
+                    if (item === '<') { node.innerHTML = '&lt;' } else
+                    { node.innerHTML = item }
+                }
+                list.push(node)
+            })
+            let index = 0
+            const timer = setInterval(function () {
+                if (index >= list.length) {
+                    clearInterval(timer);
+                    return
+                }
+                dom.insertBefore(list[index++], blink)
+            }, 200)
 }
     </script>
 </body>

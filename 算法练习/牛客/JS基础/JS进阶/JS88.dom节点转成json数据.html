@@ -1,0 +1,60 @@
+<!--
+@nc app=nowcoder id=0340a0c6d11d4aadba0aef86e6ae723f topic=271 question=39637 lang=Html
+2024-06-07 16:30:20
+https://www.nowcoder.com/practice/0340a0c6d11d4aadba0aef86e6ae723f?tpId=271&tqId=39637
+[JS88] dom节点转成json数据
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+      body{
+    margin: 0;
+    font-size: 14px;
+}
+    </style>
+</head>
+
+<body>
+   <div id="jsContainer">
+    <ul class="js-test" id="jsParent">
+        <li data-index="0">1</li>
+        <li data-index="1">2</li>
+    </ul>
+    <span style="font-weight: bold;">3</span>
+    4
+</div>
+    <script type="text/javascript">
+        function dom2json() {
+            const getJson = function (dom) {
+                const obj = {}
+                obj.tag = dom.nodeName.replace('#', '').toLowerCase()
+                if (obj.tag === 'text') {
+                    obj.content = dom.data.trim()
+                    return obj
+                }
+                obj.attributes = {}
+                Array.from(dom.attributes).forEach(item => {
+                    obj.attributes[item.nodeName] = item.value
+                })
+                obj.children = []
+                if (dom.childNodes.length >= 1) {
+                    Array.from(dom.childNodes).forEach(item => {
+                        obj.children.push(getJson(item))
+                    })
+                }
+                return obj
+            }
+            return getJson(document.querySelector('#jsContainer'))
+}
+    </script>
+</body>
+
+</html>
+
+<!--@nc code=end-->
