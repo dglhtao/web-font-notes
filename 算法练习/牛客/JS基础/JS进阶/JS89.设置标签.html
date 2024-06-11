@@ -1,0 +1,121 @@
+<!--
+@nc app=nowcoder id=b164e87713804e1ab46cf7a84936b6ba topic=271 question=39638 lang=Html
+2024-06-11 08:54:10
+https://www.nowcoder.com/practice/b164e87713804e1ab46cf7a84936b6ba?tpId=271&tqId=39638
+[JS89] 设置标签
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+       .tag-input{
+    position: relative;
+    border: 1px solid #cccccc;
+    padding: 0 5px;
+    display: flex;
+    flex-flow: row wrap;
+}
+.js-input{
+    width: 450px;
+    height: 22px;
+    line-height: 22px;
+    font-size: 16px;
+    padding: 0;
+    margin: 5px 0;
+    outline: none;
+    border: none;
+    width: 6.5em;
+    height: 24px;
+    line-height: 24px;
+}
+.tag{
+    padding: 0 10px;
+    margin: 5px 5px 5px 0;
+    background: #25bb9b;
+    color: #ffffff;
+    height: 24px;
+    line-height: 24px;
+    border-radius: 12px;
+    font-size: 13px;
+}
+    </style>
+</head>
+
+<body>
+    <div class="tag-input">
+    <span class="tag">前端</span>
+    <span class="tag">编程题</span>
+    <span class="tag">示例</span>
+    <span class="tag">标签</span>
+    <input type="text" class="js-input" maxlength="6" placeholder="请输入标签">
+</div>
+    <script type="text/javascript">
+       var tagInput = {
+    isInited: false,
+    init: init,
+    bindEvent: bindEvent,
+    addTag: addTag,
+    removeTag: removeTag
+};
+tagInput.init();
+
+function init() {
+    var that = this;
+    if (that.isInited) return;
+    that.isInited = true;
+    // 请修改这一行代码，保存class为js-input的输入框的dom元素引用
+    that.input = document.querySelector('.js-input');
+    that.bindEvent();
+}
+
+function bindEvent() {
+    var that = this;
+    var input = that.input;
+    if (!input) return;
+    input.addEventListener('keydown', function (event) {
+        // 请修改这一行代码，判断用户是否按了回车键
+        var isEnter = event.keyCode === 13;
+        // 请修改这一行代码，判断用户是否按了删除键
+        var isDelete = event.keyCode === 8;
+
+        (isEnter || isDelete) && event.preventDefault();
+        isEnter && that.addTag();
+        isDelete && that.removeTag();
+    });
+    input.parentNode.addEventListener('click', function () {
+        input.focus();
+    });
+}
+
+function addTag() {
+    const str = this.input.value.trim()
+    this.input.value = ''
+    if (str === '') { return }
+    const find = Array.from(document.querySelectorAll('.tag')).find(item => item.innerText === str)
+    if (!find) {
+        const newDom = document.createElement('span')
+        newDom.classList.add('tag')
+        newDom.innerHTML = str
+        document.querySelector('.tag-input').insertBefore(newDom, this.input)
+    }
+}
+
+function removeTag() {
+    if (this.input.value !== '') {
+        this.input.value = this.input.value.slice(0, this.input.value.length - 1)
+    } else {
+        const last = Array.from(document.querySelectorAll('.tag')).pop()
+        document.querySelector('.tag-input').removeChild(last)
+    }
+}
+    </script>
+</body>
+
+</html>
+
+<!--@nc code=end-->
