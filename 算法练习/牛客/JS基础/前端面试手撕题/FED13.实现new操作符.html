@@ -1,0 +1,31 @@
+<!--
+@nc app=nowcoder id=71c2aff7cb6641099aa17d56157a91b9 topic=274 question=39533 lang=Html
+2024-06-12 15:35:49
+https://www.nowcoder.com/practice/71c2aff7cb6641099aa17d56157a91b9?tpId=274&tqId=39533
+[FED13] 实现new操作符
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8>
+    </head>
+    <body>
+    	
+        <script type="text/javascript">
+            const _new = function() {
+                // 补全代码
+                const Fn = arguments[0]
+                const args = Array.from(arguments).slice(1)
+                const obj = Object.create(Fn.prototype)
+                const result = Fn.apply(obj, args)
+                if (['function', 'object'].includes(typeof result)) { obj = result }
+                return obj
+            }
+        </script>
+    </body>
+</html>
+
+<!--@nc code=end-->

@@ -1,0 +1,36 @@
+<!--
+@nc app=nowcoder id=70ca77b52d424ced8ebb348cd77c1dc5 topic=274 question=39537 lang=Html
+2024-06-12 16:47:58
+https://www.nowcoder.com/practice/70ca77b52d424ced8ebb348cd77c1dc5?tpId=274&tqId=39537
+[FED17] 深拷贝
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8>
+    </head>
+    <body>
+    	
+        <script type="text/javascript">
+            const _completeDeepClone = (target, map = new Map()) => {
+                // 补全代码
+                if ([Function, RegExp, Date, Set].includes(target.__proto__.constructor)) {
+                    return new target.__proto__.constructor(target)
+                }
+                if (typeof target !== 'object' || target === null) { return target }
+                if (map.has(target)) { return map.get(target) }
+                const obj = Array.isArray(target) ? [] : {}
+                map.set(target, obj)
+                for (let key in target) {
+                    obj[key] = _completeDeepClone(target[key], map)
+                }
+                return obj
+            }
+        </script>
+    </body>
+</html>
+
+<!--@nc code=end-->

@@ -1,0 +1,37 @@
+<!--
+@nc app=nowcoder id=93b96e9694634437898353f844d877af topic=274 question=39528 lang=Html
+2024-06-12 14:08:24
+https://www.nowcoder.com/practice/93b96e9694634437898353f844d877af?tpId=274&tqId=39528
+[FED8] Array.filter
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+       /* 填写样式 */
+    </style>
+</head>
+
+<body>
+    <!-- 填写标签 -->
+    <script type="text/javascript">
+        // 填写JavaScript
+        Array.prototype._filter = function(Fn) {
+            const arr = []
+            for (let i = 0; i < this.length; i++) {
+                if (Fn(this[i], i)) { arr.push(this[i]) }
+            }
+            return arr
+        }
+
+    </script>
+</body>
+
+</html>
+
+<!--@nc code=end-->

@@ -1,0 +1,41 @@
+<!--
+@nc app=nowcoder id=213d0ef21cb841de8cf69fcc5ea60eb6 topic=274 question=39529 lang=Html
+2024-06-12 14:11:57
+https://www.nowcoder.com/practice/213d0ef21cb841de8cf69fcc5ea60eb6?tpId=274&tqId=39529
+[FED9] Array.reduce
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+       /* 填写样式 */
+    </style>
+</head>
+
+<body>
+    <!-- 填写标签 -->
+    <script type="text/javascript">
+        // 填写JavaScript
+        Array.prototype._reduce = function (Fn, initVal) {
+            let prev = this[0]
+            let start = 1
+            if (arguments.length === 2) {
+                prev = initVal
+                start = 0
+            }
+            for (let i = start; i < this.length; i++) {
+                prev = Fn(prev, this[i])
+            }
+            return prev
+        }
+    </script>
+</body>
+
+</html>
+
+<!--@nc code=end-->

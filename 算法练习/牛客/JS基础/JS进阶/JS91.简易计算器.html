@@ -150,14 +150,14 @@ li[data-action=operator] {
     bindEvent: function () {
         var that = this;
         // 请补充代码：获取 .cal-keyboard 元素
-        var keyboardEl = null;
+        var keyboardEl = document.querySelector('.cal-keyboard');
         keyboardEl && keyboardEl.addEventListener('click', function (event) {
             // 请补充代码：获取当前点击的dom元素
-            var target = null;
+            var target = event.target;
             // 请补充代码：获取target的 data-action 值
-            var action = '';
+            var action = target.getAttribute('data-action');
             // 请补充代码：获取target的内容
-            var value = '';
+            var value = target.innerText;
             if (action === 'num' || action === 'operator') {
                 that.result(value, action === 'num');
             }
@@ -171,9 +171,9 @@ li[data-action=operator] {
             !data.action && (data.total = 0);
         } else if (action === '清空') {
             // 请补充代码：设置清空时的对应状态
-            data.total = undefined;
-            data.next = undefined;
-            data.action = undefined;
+            data.total = 0;
+            data.next = '';
+            data.action = '';
         } else if (action === '=') {
             if (data.next || data.action) {
                 data.total = that.calculate(data.total, data.next, data.action);
@@ -193,7 +193,7 @@ li[data-action=operator] {
         }
     
         // ���补充代码：获取 .origin-value 元素
-        var valEl = null;
+        var valEl = document.querySelector('.origin-value');
         valEl && (valEl.innerHTML = data.next || data.total || '0');
     },
     calculate: function (n1, n2, operator) {
@@ -201,16 +201,20 @@ li[data-action=operator] {
         n2 = +n2 || 0;
         if (operator === '÷') {
             // 请补充代码：获取除法的结果
-            return 0;
+            let result = (n2 !== 0 ? (n1 / n2) : 0).toFixed(2)
+            return Number(result);
         } else if (operator === 'x') {
             // 请补充代码：获取乘法的结果
-            return 0;
+            let result = (n1 * n2).toFixed(2)
+            return Number(result);
         } else if (operator === '+') {
             // 请补充代码：获取加法的结果
-            return 0;
+            let result = (n1 + n2).toFixed(2)
+            return Number(result);
         } else if (operator === '-') {
             // 请补充代码：获取减法的结果
-            return 0;
+            let result = (n1 - n2).toFixed(2)
+            return Number(result);
         }
     }
 };

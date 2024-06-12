@@ -1,0 +1,50 @@
+<!--
+@nc app=nowcoder id=38da660199d0400580ac3905c05f5bd6 topic=274 question=39524 lang=Html
+2024-06-12 10:36:28
+https://www.nowcoder.com/practice/38da660199d0400580ac3905c05f5bd6?tpId=274&tqId=39524
+[FED4] 快速排序
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+       /* 填写样式 */
+    </style>
+</head>
+
+<body>
+    <!-- 填写标签 -->
+    <script type="text/javascript">
+        // 填写JavaScript
+        const _quickSort = array => {
+            const qkSort = function (x, y) {
+                let i = x
+                let j = y
+                const k = array[Math.floor((x + y) / 2)]
+                do {
+                    while (array[i] < k) { i++ }
+                    while (k < array[j]) { j-- }
+                    if (i < j) {
+                        let sp = array[i]
+                        array[i] = array[j]
+                        array[j] = sp
+                    }
+                    i++; j--
+                } while (i <= j)
+                if (x < j) { qkSort(x, j) }
+                if (i < y) { qkSort(i, y) }
+            }
+            qkSort(0, array.length - 1)
+            return array
+        }
+    </script>
+</body>
+
+</html>
+
+<!--@nc code=end-->

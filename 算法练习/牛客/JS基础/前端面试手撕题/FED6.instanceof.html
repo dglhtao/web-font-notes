@@ -1,0 +1,37 @@
+<!--
+@nc app=nowcoder id=a1169935fd6145899f953ba8fbccb585 topic=274 question=39526 lang=Html
+2024-06-12 11:12:52
+https://www.nowcoder.com/practice/a1169935fd6145899f953ba8fbccb585?tpId=274&tqId=39526
+[FED6] instanceof
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+       /* 填写样式 */
+    </style>
+</head>
+
+<body>
+    <!-- 填写标签 -->
+    <script type="text/javascript">
+        // 填写JavaScript
+          const _instanceof = (target, Fn) => {
+            let proto = target.__proto__
+            while (true) {
+                if (proto === Fn.prototype) { return true }
+                if (proto === null) { return false }
+                proto = proto.__proto__
+            }
+}
+    </script>
+</body>
+
+</html>
+
+<!--@nc code=end-->

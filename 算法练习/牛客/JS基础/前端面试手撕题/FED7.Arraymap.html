@@ -1,0 +1,37 @@
+<!--
+@nc app=nowcoder id=8300c998180c4ebbbd2a5aaeb7fbc77c topic=274 question=39527 lang=Html
+2024-06-12 13:56:53
+https://www.nowcoder.com/practice/8300c998180c4ebbbd2a5aaeb7fbc77c?tpId=274&tqId=39527
+[FED7] Array.map
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+       /* 填写样式 */
+    </style>
+</head>
+
+<body>
+    <!-- 填写标签 -->
+    <script type="text/javascript">
+        // 
+        Array.prototype._map = function(Fn) {
+            const arr = this
+            for (let i = 0; i < arr.length; i++) {
+                arr[i] = Fn(arr[i], i)
+            }
+            return arr
+        }
+
+    </script>
+</body>
+
+</html>
+
+<!--@nc code=end-->

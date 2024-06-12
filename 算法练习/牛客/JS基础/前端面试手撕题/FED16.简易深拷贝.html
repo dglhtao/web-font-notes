@@ -1,0 +1,52 @@
+<!--
+@nc app=nowcoder id=3d436d07f5cb4b628a4dd7c12476cabe topic=274 question=39536 lang=Html
+2024-06-12 16:42:49
+https://www.nowcoder.com/practice/3d436d07f5cb4b628a4dd7c12476cabe?tpId=274&tqId=39536
+[FED16] 简易深拷贝
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8>
+    </head>
+    <body>
+    	
+        <script type="text/javascript">
+            const _sampleDeepClone = target => {
+                console.log(target)
+                // 补全代码
+                if (Array.isArray(target)) {
+                    const arr = []
+                    target.forEach(item => {
+                        arr.push(_sampleDeepClone(item))
+                    })
+                    return arr
+                } else
+                if (typeof target === 'object' && target !== null) {
+                    const set = {}
+                    Object.keys(target).forEach(key => {
+                        set[key] = _sampleDeepClone(target[key])
+                    })
+                    return set
+                }
+                return target
+            }
+        </script>
+    </body>
+</html>
+
+<style>
+/* 请在这里输入代码 */
+/* html, body {\n\twidth: 100%;\n\theight: 100%;\n\tmargin: 0;\n\tpadding: 0;\n} */
+
+</style>
+
+<script type="text/javascript">
+// 请在这里输入代码
+
+</script>
+
+<!--@nc code=end-->

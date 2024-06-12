@@ -1,0 +1,38 @@
+<!--
+@nc app=nowcoder id=ba17ac11584a4aaeaef639655b896d86 topic=274 question=39534 lang=Html
+2024-06-12 16:00:32
+https://www.nowcoder.com/practice/ba17ac11584a4aaeaef639655b896d86?tpId=274&tqId=39534
+[FED14] Object.freeze
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8>
+    </head>
+    <body>
+    	
+        <script type="text/javascript">
+            const _objectFreeze = object => {
+                // 补全代码
+                const defineReactive = function (target, property, value) {
+                    Object.defineProperty(target, property, {
+                        value,
+                        enumerable: true,
+                        writable: false,
+                        configurable: false
+                    })
+                }
+                Object.keys(object).forEach(key => {
+                    defineReactive(object, key, object[key])
+                })
+                Object.preventExtensions(object)
+                return object
+            }
+        </script>
+    </body>
+</html>
+
+<!--@nc code=end-->
