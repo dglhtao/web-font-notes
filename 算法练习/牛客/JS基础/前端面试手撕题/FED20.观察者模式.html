@@ -1,0 +1,53 @@
+<!--
+@nc app=nowcoder id=557ec9ca35d542feaa06261385711323 topic=274 question=39540 lang=Html
+2024-06-13 09:53:04
+https://www.nowcoder.com/practice/557ec9ca35d542feaa06261385711323?tpId=274&tqId=39540
+[FED20] 观察者模式
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8>
+    </head>
+    <body>
+    	
+        <script type="text/javascript">
+            // 补全代码
+            class Observerd {
+                constructor (name) {
+                    this._observes = []
+                    this.name = name
+                    this.state = '走路'
+                }
+                setObserver (observe) {
+                    this._observes.includes(observe) ? null : this._observes.push(observe)
+                    observe.setObserved(this)
+                }
+                setState (state)  {
+                    this.state = state
+                    this._observes.forEach(item => item.update())
+                }
+            }
+
+            class Observer {
+                constructor () {
+                    this.target = null
+                }
+                setObserved (target) {
+                    this.target = target
+                }
+                update () {
+                    if (this.target === null) { return }
+                    const name = this.target.name
+                    const state = this.target.state
+                    console.log(`${name}正在${state}`)
+                }
+            }
+        </script>
+    </body>
+</html>
+
+<!--@nc code=end-->

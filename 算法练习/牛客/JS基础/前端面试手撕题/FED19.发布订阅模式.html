@@ -1,0 +1,64 @@
+<!--
+@nc app=nowcoder id=569e1fd641be4fd797f12a28b763d709 topic=274 question=39539 lang=Html
+2024-06-13 08:57:35
+https://www.nowcoder.com/practice/569e1fd641be4fd797f12a28b763d709?tpId=274&tqId=39539
+[FED19] 发布订阅模式
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8>
+    </head>
+    <body>
+    	
+        <script type="text/javascript">
+            class EventEmitter {
+                // 补全代码
+                constructor () {
+                    this.events = {}
+                }
+                on (eventName, callback) {
+                    if (this.events[eventName]) {
+                        this.events[eventName].push(callback)
+                    } else {
+                        this.events[eventName] = Array.from([callback])
+                    }
+                }
+                emit (eventName, param) {
+                    if (!this.events[eventName]) { return }
+                    this.events[eventName].forEach(function (callback) {
+                        if (typeof callback === 'function') {
+                            callback(param)
+                        }
+                    })
+                }
+                off (eventName, callback) {
+                    if (!this.events[eventName]) { return }
+                    if (callback) {
+                        const index = this.events[eventName].findIndex(item => item === callback)
+                        if (index !== -1) {
+                            this.events[eventName].splice(index, 1)
+                        }
+                    } else {
+                        delete this.events[eventName]
+                    }
+                }
+                once (eventName, callback) {
+                    const callback2 = param => {
+                        callback(param)
+                        this.off(eventName, callback2)
+                    }
+                    this.on(eventName, callback2)
+                }
+                clear () {
+                    this.events = {}
+                }
+            }
+        </script>
+    </body>
+</html>
+
+<!--@nc code=end-->

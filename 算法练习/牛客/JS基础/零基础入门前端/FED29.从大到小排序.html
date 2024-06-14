@@ -1,0 +1,50 @@
+<!--
+@nc app=nowcoder id=e322fef7ed654db993163f7025eb06a4 topic=260 question=2200631 lang=Html
+2024-06-14 16:16:03
+https://www.nowcoder.com/practice/e322fef7ed654db993163f7025eb06a4?tpId=260&tqId=2200631
+[FED29] 从大到小排序
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+       /* 填写样式 */
+    </style>
+</head>
+
+<body>
+    <!-- 填写标签 -->
+    <script type="text/javascript">
+        // 填写JavaScript
+        function _sort(array) {
+    Array.prototype.kpSort = function (start, end) {
+        let x = start
+        let y = end
+        let k = this[Math.floor((x + y) / 2)]
+        do {
+            while (this[x] > k) { x++ }
+            while (k > this[y]) { y-- }
+            if (x < y) {
+                const swap = this[x]
+                this[x] = this[y]
+                this[y] = swap
+            }
+            x++; y--
+        } while (x <= y)
+        if (start < y) { this.kpSort(start, y) }
+        if (x < end) { this.kpSort(x, end) }
+    }
+    array.kpSort(0, array.length - 1)
+    return array
+}
+    </script>
+</body>
+
+</html>
+
+<!--@nc code=end-->
