@@ -1,0 +1,37 @@
+<!--
+@nc app=nowcoder id=34c11cb34e0e40df9c196de99a7b2a26 topic=260 question=2200659 lang=Html
+2024-07-03 10:46:06
+https://www.nowcoder.com/practice/34c11cb34e0e40df9c196de99a7b2a26?tpId=260&tqId=2200659
+[FED53] 阻止默认事件
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+       /* 填写样式 */
+    </style>
+</head>
+
+<body>
+    <form>
+	<label>牛客会陪伴大家</label>
+	<input id="checkbox" type="checkbox" checked/>
+</form>
+    <script type="text/javascript">
+        // 填写JavaScript
+        document.querySelector('#checkbox').addEventListener('click', function (e) {
+            if (!e.target.checked) {
+                e.preventDefault()
+            }
+        })
+    </script>
+</body>
+
+</html>
+
+<!--@nc code=end-->

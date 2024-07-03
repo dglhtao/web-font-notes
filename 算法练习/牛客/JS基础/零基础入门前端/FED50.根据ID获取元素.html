@@ -1,0 +1,36 @@
+<!--
+@nc app=nowcoder id=d52188c592cb4c4cb7051890a3c9b25c topic=260 question=2200656 lang=Html
+2024-07-03 10:34:59
+https://www.nowcoder.com/practice/d52188c592cb4c4cb7051890a3c9b25c?tpId=260&tqId=2200656
+[FED50] 根据ID获取元素
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+       /* 填写样式 */
+    </style>
+</head>
+
+<body>
+ <ul>
+    <li>1</li>
+    <li id = 'li'>2</li>
+    <li>3</li>
+</ul> 
+    <script type="text/javascript">
+       function getLI(id){
+    // 补全代码
+    return Array.from(document.querySelector('ul').children).find(item => item.id === id)
+}       
+    </script>
+</body>
+
+</html>
+
+<!--@nc code=end-->

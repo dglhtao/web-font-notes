@@ -1,0 +1,39 @@
+<!--
+@nc app=nowcoder id=144422bbf3044e8c8429a88588857c8b topic=260 question=2200655 lang=Html
+2024-07-03 10:30:21
+https://www.nowcoder.com/practice/144422bbf3044e8c8429a88588857c8b?tpId=260&tqId=2200655
+[FED49] JS动态创建节点
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+       /* 填写样式 */
+    </style>
+</head>
+
+<body>
+ <ul></ul> 
+    <script type="text/javascript">
+       function createLi(array){
+    // 补全代码
+    const ul = document.querySelector('ul')
+    array.map(item => {
+        const li = document.createElement('li')
+        li.innerText = item
+        return li
+    }).forEach(item => {
+        ul.appendChild(item)
+    })
+}       
+    </script>
+</body>
+
+</html>
+
+<!--@nc code=end-->

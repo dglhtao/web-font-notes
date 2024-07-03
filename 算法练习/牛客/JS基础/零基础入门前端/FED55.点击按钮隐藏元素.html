@@ -1,0 +1,68 @@
+<!--
+@nc app=nowcoder id=9b0016737b3040aaa61316890f1ac3f8 topic=260 question=2200662 lang=Html
+2024-07-03 10:53:54
+https://www.nowcoder.com/practice/9b0016737b3040aaa61316890f1ac3f8?tpId=260&tqId=2200662
+[FED55] 点击按钮隐藏元素
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8>
+        <style type="text/css">
+            .box {
+                width: 100px;
+                height: 100px;
+                border: solid 1px black;
+                /*补全代码*/
+                position: relative;
+            }
+            .btn{
+                width: 20px;
+                height: 20px;
+                background-color: red;
+                /*补全代码*/
+                position: absolute;
+                top: -10px;
+                right: -10px;
+                text-align: center;
+                &::after {
+                    content: '';
+                    height: 100%;
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+            }
+        </style>
+    </head>
+    <body>
+
+        <div class='box'>
+            <div class='btn'>X</div>
+        </div>
+
+        <script type="text/javascript">
+            var btn = document.querySelector('.btn');
+            var box = document.querySelector('.box');
+            btn.onclick = function(){
+                // 补全代码
+                box.style.display = 'none'
+            }
+        </script>
+    </body>
+</html>
+
+<style>
+/* 请在这里输入代码 */
+/* html, body {\n\twidth: 100%;\n\theight: 100%;\n\tmargin: 0;\n\tpadding: 0;\n} */
+
+</style>
+
+<script type="text/javascript">
+// 请在这里输入代码
+
+</script>
+
+<!--@nc code=end-->
