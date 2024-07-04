@@ -1,0 +1,62 @@
+<!--
+@nc app=nowcoder id=c940df050f3645529df374e3e1c1994e topic=277 question=2317556 lang=Html
+2024-07-03 15:50:52
+https://www.nowcoder.com/practice/c940df050f3645529df374e3e1c1994e?tpId=277&tqId=2317556
+[CSS11] 定位 - relative
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8>
+        <style type="text/css">
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            .left {
+                width: 100px;
+                height: 100px;
+            }
+            .center {
+                width: 100px;
+                height: 100px;
+            }
+            .right {
+                width: 100px;
+                height: 100px;
+            }
+        </style>
+    </head>
+    <body>
+    	<div class="left"></div>
+        <div class="center"></div>
+        <div class="right"></div>
+    </body>
+</html>
+
+<style>
+/* 请在这里输入代码 */
+/* html, body {\n\twidth: 100%;\n\theight: 100%;\n\tmargin: 0;\n\tpadding: 0;\n} */
+.center {
+    position: relative;
+    left: 50px;
+    top: 50px;
+    background-color: lightblue;
+}
+.left {
+    background-color: lightcoral;
+}
+.right {
+    background-color: lightgray;
+}
+</style>
+
+<script type="text/javascript">
+// 请在这里输入代码
+
+</script>
+
+<!--@nc code=end-->

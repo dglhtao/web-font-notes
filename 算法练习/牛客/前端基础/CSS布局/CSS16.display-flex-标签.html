@@ -1,0 +1,104 @@
+<!--
+@nc app=nowcoder id=6a87a0c6182c44caa00074f4392c17d1 topic=277 question=2317561 lang=Html
+2024-07-04 10:12:46
+https://www.nowcoder.com/practice/6a87a0c6182c44caa00074f4392c17d1?tpId=277&tqId=2317561
+[CSS16] display - flex - 标签
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8>
+        <style type="text/css">
+            * {
+                margin: 0;
+                padding: 0;
+                font-size: 12px;
+                box-sizing: border-box;
+            }
+            nav ul {
+                padding: 0.5rem;
+                list-style: none;
+            }
+            nav ul li {
+                display: inline-block;
+                margin: 0.2rem;
+            }
+            nav ul li a {
+                position: relative;
+                display: block;
+                padding: 0.2rem 0.6rem;
+                color: white;
+                line-height: 1rem;
+                background-color: black;
+                border-radius: 0.2rem;
+                text-decoration: none;
+                text-align: center;
+            }
+            nav ul li a:before {
+                position: absolute;
+                content: '';
+                width: 0;
+                height: 0;
+                border: 0.7rem solid transparent;
+                border-right-width: 0.7rem;
+                border-right-color: black;
+                left: -1.2rem;
+                top: 0;
+            }
+        </style>
+    </head>
+    <body>
+    	<nav>
+            <ul>
+                <li><a href="">Fillithar</a></li>
+                <li><a href="">Berzite</a></li>
+                <li><a href="">Galidraan</a></li>
+                <li><a href="">Gravlex Med</a></li>
+                <li><a href="">Cato Neimoidia</a></li>
+                <li><a href="">Coruscant</a></li>
+                <li><a href="">Dantooine</a></li>
+                <li><a href="">Dhandu</a></li>
+                <li><a href="">Iktotchon</a></li>
+                <li><a href="">Hosnian Prime</a></li>
+                <li><a href="">Harkrova I</a></li>
+                <li><a href="">Livno III</a></li>
+                <li><a href="">Karfeddion</a></li>
+                <li><a href="">Eriadu</a></li>
+                <li><a href="">Jestefad</a></li>
+                <li><a href="">Iridonia</a></li>
+                <li><a href="">Malachor</a></li>
+                <li><a href="">Gan Moradir</a></li>
+                <li><a href="">Kethmandi</a></li>
+                <li><a href="">Mirrin Prime</a></li>
+                <li><a href="">Ezaraa</a></li>
+                <li><a href="">Muunilinst</a></li>
+                <li><a href="">Itapi Prime</a></li>
+                <li><a href="">Nam Chorios</a></li>
+            </ul>
+        </nav>
+    </body>
+</html>
+
+<style>
+/* 请在这里输入代码 */
+/* html, body {\n\twidth: 100%;\n\theight: 100%;\n\tmargin: 0;\n\tpadding: 0;\n} */
+nav ul li {
+    display: block;
+    flex: 1 0 auto;
+    max-width: 10rem;
+}
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+</style>
+
+<script type="text/javascript">
+// 请在这里输入代码
+
+</script>
+
+<!--@nc code=end-->

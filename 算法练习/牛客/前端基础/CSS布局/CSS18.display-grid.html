@@ -1,0 +1,61 @@
+<!--
+@nc app=nowcoder id=9b83057f33214e9498fd44ad6d553948 topic=277 question=2317563 lang=Html
+2024-07-04 10:30:31
+https://www.nowcoder.com/practice/9b83057f33214e9498fd44ad6d553948?tpId=277&tqId=2317563
+[CSS18] display - grid
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8>
+        <style type="text/css">
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            section {
+                width: 500px;
+                text-align: center;
+            }
+            article {
+                height: 100px;
+                border: 1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+    	<section>
+            <article>1</article>
+            <article>2</article>
+            <article>3</article>
+            <article>4</article>
+            <article>5</article>
+            <article>6</article>
+            <article>7</article>
+            <article>8</article>
+            <article>9</article>
+        </section>
+    </body>
+</html>
+
+<style>
+/* 请在这里输入代码 */
+/* html, body {\n\twidth: 100%;\n\theight: 100%;\n\tmargin: 0;\n\tpadding: 0;\n} */
+section {
+    display: grid;
+    grid-template-rows: 100px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+}
+</style>
+
+<script type="text/javascript">
+// 请在这里输入代码
+
+</script>
+
+<!--@nc code=end-->

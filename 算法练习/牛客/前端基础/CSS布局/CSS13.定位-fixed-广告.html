@@ -1,0 +1,62 @@
+<!--
+@nc app=nowcoder id=2fca877b2330412586d3dc0d270ea48e topic=277 question=2317558 lang=Html
+2024-07-03 15:56:34
+https://www.nowcoder.com/practice/2fca877b2330412586d3dc0d270ea48e?tpId=277&tqId=2317558
+[CSS13] 定位 - fixed - 广告
+-->
+
+<!--@nc code=start-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8>
+        <style type="text/css">
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            .advert {
+                width: 300px;
+                height: 200px;
+                background-color: black;
+            }
+            .advert:first-line {
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+    	<section class="advert">
+            广告文案
+            <button class="x">x</button>
+        </section>
+
+        <script>
+            document.querySelector('button').onclick = function() {
+                this.parentNode.style.display = 'none'
+            }
+        </script>
+    </body>
+</html>
+
+<style>
+/* 请在这里输入代码 */
+/* html, body {\n\twidth: 100%;\n\theight: 100%;\n\tmargin: 0;\n\tpadding: 0;\n} */
+.advert {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+}
+.advert .x {
+    position: absolute;
+    right: 0;
+}
+</style>
+
+<script type="text/javascript">
+// 请在这里输入代码
+
+</script>
+
+<!--@nc code=end-->
