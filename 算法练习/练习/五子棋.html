@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>五子棋</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    .box {
+      display: grid;
+      margin: 20px;
+    }
+    .cell {
+      width: 30px;
+      height: 30px;
+      border: 0.5px solid black;
+      font-size: 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .first-line {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      font-size: 18px;
+      input {
+        font-size: 18px;
+        width: 100px;
+        height: 30px;
+      }
+      .reset-btn {
+        margin-left: 20px;
+        width: 100px;
+        height: 40px;
+        border-radius: 10px;
+        background-color: lightblue;
+        cursor: pointer;
+        text-align: center;
+        &::after {
+          content: '';
+          height: 100%;
+          display: inline-block;
+          vertical-align: middle;
+        }
+      }
+    }
+    .second-line {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="first-line">
+    <input id="widthInput" type="number">
+    <div style="margin: 0 20px"> × </div>
+    <input id="heightInput" type="number">
+    <div class="reset-btn" onclick="reset()">重置棋盘</div>
+  </div>
+  <div class="second-line">
+    <div>下一落子：</div>
+    <div class="next-chess"></div>
+  </div>
+  <div class="box"></div>
+  <script>
+    const domBox = document.querySelector('.box')
+    const widthInput = document.querySelector('#widthInput')
+    const heightInput = document.querySelector('#heightInput')
+    let widthNum = 10
+    let heightNum = 10
+    widthInput.value = widthNum
+    heightInput.value = heightNum
+    let arr = new Array(heightNum * widthNum).fill('')
+    let step = 0
+    let finish = false
+    function reset () {
+      widthNum = Number(widthInput.value)
+      heightNum = Number(heightInput.value)
+      domBox.style['grid-template-columns'] = `repeat(${widthNum}, 1fr)`
+      domBox.style['grid-template-rows'] = `repeat(${heightNum}, 1fr)`
+      domBox.style.width = `${widthNum * 30}px`
+      domBox.style.height = `${heightNum * 30}px`
+      arr = new Array(heightNum * widthNum).fill('')
+      step = 0
+      finish = false
+      domBox.innerHTML = ''
+      arr.forEach(item => {
+        const el = document.createElement('div')
+        el.classList.add('cell')
+        el.innerText = item
+        domBox.appendChild(el)
+      })
+      document.querySelector('.next-chess').innerText = step % 2 ? '○' : '●'
+    }
+    reset()
+    domBox.addEventListener('click', function (e) {
+      if (finish) { return }
+      const index = Array.from(domBox.children).findIndex(each => each === e.target)
+      if (index !== -1) {
+        arr[index] = step % 2 ? '○' : '●'
+        e.target.innerText = arr[index]
+        step++
+        document.querySelector('.next-chess').innerText = step % 2 ? '○' : '●'
+        setTimeout(() => {
+          ifWin(index)
+        }, 100)
+      }
+    })
+    const dirWin = function (index, pi, ni, px, py, nx, ny) {
+      const sign = (step - 1) % 2 ? '○' : '●'
+      let preIndex = index
+      let nextIndex = index
+      let count = 1
+      let oldCount
+      do {
+        oldCount = count
+        const preX = preIndex % widthNum
+        const preY = Math.floor(preIndex / widthNum)
+        if (preX + px >= 0 && preX + px < widthNum && preY + py >= 0 && preY + py < heightNum) {
+          if (arr[preIndex + pi] === sign) {
+            preIndex += pi
+            count++
+          }
+        }
+        const nextX = nextIndex % widthNum
+        const nextY = Math.floor(nextIndex / widthNum)
+        if (nextX + nx >= 0 && nextX + nx < widthNum && nextY + ny >= 0 && nextY + ny < heightNum) {
+          if (arr[nextIndex + ni] === sign) {
+            nextIndex += ni
+            count++
+          }
+        }
+      } while (oldCount !== count)
+      if (count >= 5) { return true }
+      return false
+    }
+    function ifWin (index) {
+      const dir =[
+        [-1, 1, -1, 0, 1, 0],
+        [-widthNum, widthNum, 0, -1, 0, 1],
+        [-widthNum - 1, widthNum + 1, -1, -1, 1, 1],
+        [-widthNum + 1, widthNum - 1, 1, -1, -1, 1],
+      ]
+      const find = dir.find(item => dirWin(index, ...item))
+      if (find) {
+        alert(`${(step - 1) % 2 ? '○' : '●'} win!`)
+        finish = true
+        document.querySelector('.next-chess').innerText = '对局结束，请重置棋盘开始下一局'
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>井字棋</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    .box {
+      width: 300px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+    }
+    .cell {
+      width: 100px;
+      height: 100px;
+      font-size: 50px;
+      border: 1px solid black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .reset-btn {
+      margin-top: 50px;
+      width: 100px;
+      height: 50px;
+      border: 1px solid lightgray;
+      background: lightblue;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+  </div>
+  <div class="reset-btn">重置</div>
+  <script>
+    let steps = 0
+    let arr = new Array(9).fill('')
+    const wins = ['123', '456', '789','137', '258', '369', '159', '357'].map(item => item.split(''))
+    function render () {
+      Array.from(document.querySelectorAll('.cell')).forEach((item, index) => {
+        item.innerText = arr[index]
+      })
+    }
+    function ifWin () {
+      const sign = (steps - 1) % 2 ? 'X' : 'O'
+      const nowArr = arr.map((item, index) => item === sign ? String(index + 1) : -1).filter(item => item !== -1)
+      const find = wins.find(item => item.filter(each => nowArr.includes(each)).length === 3)
+      if (find) {
+        alert(`${sign} win!`)
+        document.querySelector('.reset-btn').click()
+      }
+    }
+    const domBox = document.querySelector('.box')
+    domBox.addEventListener('click', function (e) {
+      const index = Array.from(domBox.children).findIndex(each => each === e.target)
+      if (index !== -1) {
+        arr[index] = steps % 2 ? 'X' : 'O'
+        render()
+        steps++
+        setTimeout(() => {
+          ifWin()
+        }, 100)
+      }
+    })
+    document.querySelector('.reset-btn').addEventListener('click', function () {
+      steps = 0
+      arr = new Array(9).fill('')
+      render()
+    })
+  </script>
+</body>
+</html>
