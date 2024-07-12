@@ -13,11 +13,15 @@
     .box {
       display: grid;
       margin: 20px;
+      border-right: 0.5px solid black;
+      border-bottom: 0.5px solid black;
     }
     .cell {
       width: 30px;
       height: 30px;
-      border: 0.5px solid black;
+      /* border: 0.5px solid black; */
+      border-left: 0.5px solid black; 
+      border-top: 0.5px solid black; 
       font-size: 24px;
       display: flex;
       justify-content: center;
@@ -104,6 +108,7 @@
       if (finish) { return }
       const index = Array.from(domBox.children).findIndex(each => each === e.target)
       if (index !== -1) {
+        if (arr[index] !== '') { return }
         arr[index] = step % 2 ? '○' : '●'
         e.target.innerText = arr[index]
         step++
