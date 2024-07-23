@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input data-v-2a633ea7 type="text"></input>
+
+  <script>
+    function observe (obj) { // 观察者
+      if (typeof obj !== 'object' || obj === null) { return }
+      for (const key in obj) {
+        defineReactive(obj, key, obj[key])
+      }
+    }
+    function defineReactive (obj, key, value) {
+      let funcs = []
+      Object.defineProperty(obj, key, { // 数据劫持
+        get () {
+          // 依赖收集：记录是哪个函数在获取该变量，
+          // 同一函数只收集一次
+          if (window.__func && !funcs.includes(window.__func)) {
+            funcs.push(window.__func)
+          }
+          return value
+        },
+        set (val) {
+          if (val === value) { return }
+          value = val // 避免循环调用，所以不用obj[key] = val
+          // 派发更新：自动调用依赖该属性的函数
+          funcs.forEach(fn => fn())
+        }
+      })
+    }
+
+    function autorun (fn) { // 对更新函数加一层封装，便于get收集依赖
+      window.__func = fn
+      fn()
+      window.__func = null
+    }
+
+    var data = {
+      value: 'test'
+    }
+    observe(data)
+
+    // Vue自动生成更新函数，并渲染数据
+    function renderValue () {
+      document.querySelector('input[data-v-2a633ea7]').value = data.value
+    }
+    autorun(renderValue)
+    // 完整监听操作不只是addEventListener
+    document.querySelector('input[data-v-2a633ea7]').addEventListener('input', e => {
+      data.value = e.target.value
+    })
+  </script>
+</body>
+</html>
